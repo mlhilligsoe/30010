@@ -7,6 +7,8 @@
 #include "timers.h"
 #include "display.h"
 
+
+//Nice
 void main(){
 
 char videoBuffer[5][6] = {0}; //init et '0' array.
