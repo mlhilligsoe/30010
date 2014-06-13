@@ -3,7 +3,7 @@
 #include "timers.h"
 #include "ansi.h"
 #include "input.h"
-#include "display.h"
+#include "LED.h"
 
 void reset(struct stopwatch* time){
 time->H =0;
@@ -68,7 +68,7 @@ if (timer.M >= 60){
 
 #pragma interrupt
 void timer1int() {
-updateDisplay = 1;
+updateLED = 1;
 // insert display update flag.
 }
 

@@ -5,9 +5,6 @@
 #include "SinLUT.h"
 #include "printFix.h"
 
-#define FIX14_SHIFT 14
-#define FIX14_MULT(a, b) ( (a)*(b) >> FIX14_SHIFT )
-#define FIX14_DIV(a, b) ( ((a) << FIX14_SHIFT) / (b) )
 
 void fgcolor(int foreground) {
 /*  Value      foreground     Value     foreground
@@ -161,16 +158,4 @@ void window(int x1, int y1, int x2, int y2, char* title, char style){
 	printf("%c",br);
 } 
 
-void rotate(struct TVector *v, long deg){
-long tempx, tempy;
-tempx = v->x;
-tempy = v->y;
-v->x = FIX14_MULT(tempx, cos(deg)) - FIX14_MULT(tempy, sin(deg));
-v->y = FIX14_MULT(tempx, sin(deg)) + FIX14_MULT(tempy, cos(deg));
 
-}
-
-void initVector(struct TVector *v, long a, long b) {
-v->x = a << FIX14_SHIFT;
-v->y = b << FIX14_SHIFT;
-}

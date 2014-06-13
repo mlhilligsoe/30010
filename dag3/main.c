@@ -5,7 +5,7 @@
 #include "SinLUT.h"
 #include "input.h"
 #include "timers.h"
-#include "display.h"
+#include "LED.h"
 
 
 //Nice

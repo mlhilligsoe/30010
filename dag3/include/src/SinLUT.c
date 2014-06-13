@@ -16,6 +16,37 @@
 // SIN: a 512 long LUT of 16bit values in 2.14 format
 // sin(x*pi/256)
 
+
+#define FIX14_SHIFT 14
+#define FIX14_MULT(a, b) ( (a)*(b) >> FIX14_SHIFT )
+#define FIX14_DIV(a, b) ( ((a) << FIX14_SHIFT) / (b) )
+
+signed short sin(int i){
+i &= 0x1FF; // håndterer det repetitive ved sinus.
+return SIN[i];
+}
+
+signed short cos(int i){
+i = (i+128);
+i &= 0x1FF; // konverterer til cosinus men bruger sinus tabellen
+return SIN[i];
+}
+
+void rotate(struct TVector *v, long deg){
+long tempx, tempy;
+tempx = v->x;
+tempy = v->y;
+v->x = FIX14_MULT(tempx, cos(deg)) - FIX14_MULT(tempy, sin(deg));
+v->y = FIX14_MULT(tempx, sin(deg)) + FIX14_MULT(tempy, cos(deg));
+
+}
+
+void initVector(struct TVector *v, long a, long b) {
+v->x = a << FIX14_SHIFT;
+v->y = b << FIX14_SHIFT;
+}
+
+
 const signed short SIN[512]=
 {
 	0x0000,0x00C9,0x0192,0x025B,0x0324,0x03ED,0x04B5,0x057E,
@@ -90,15 +121,3 @@ const signed short SIN[512]=
 	0xF384,0xF449,0xF50F,0xF5D5,0xF69C,0xF763,0xF82A,0xF8F2,
 	0xF9BA,0xFA82,0xFB4B,0xFC13,0xFCDC,0xFDA5,0xFE6E,0xFF37,
 };
-
-
-signed short sin(int i){
-i &= 0x1FF; // håndterer det repetitive ved sinus.
-return SIN[i];
-}
-
-signed short cos(int i){
-i = (i+128);
-i &= 0x1FF; // konverterer til cosinus men bruger sinus tabellen
-return SIN[i];
-}

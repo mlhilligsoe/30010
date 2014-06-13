@@ -1,7 +1,7 @@
 #include <eZ8.h>             // special encore constants, macros and flash routines
 #include <sio.h>             // special encore serial i/o routines
 #include "timers.h"
-#include "display.h"
+#include "LED.h"
 #include "charset.h"
 #include "ansi.h"
 #include <string.h>
@@ -13,7 +13,7 @@ PGDD = 0x00; //data direction
 //initTimer1(); //opsætter timer1 og starter den
 
 }
-char cColumn = 0, columnIndex = 0, displayIndex = 0;
+char cColumn = 0, columnIndex = 0, LEDIndex = 0;
 int runs = 0;
 int scrollSpeed = 750;
 
@@ -28,8 +28,8 @@ if ( runs == 0 ){
 
 		//Udregner hvornår videoBuffer skal opdateres
 if( columnIndex == 0 ){				
-	displayIndex = (displayIndex +1) % strlen(TEKST);
-	LEDsetString(TEKST, videoBuffer, displayIndex);
+	LEDIndex = (LEDIndex +1) % strlen(TEKST);
+	LEDsetString(TEKST, videoBuffer, LEDIndex);
 	}
 }
 runs = (runs + 1) % scrollSpeed;
@@ -57,7 +57,7 @@ void LEDsetString(char string[], char videoBuffer[][6], char index){
 void LEDupdate(char column, char videoBuffer[][6], char columnIndex){
 
 
-	if(updateDisplay != 0){
+	if(updateLED != 0){
 	
 	
 
@@ -100,7 +100,7 @@ void LEDupdate(char column, char videoBuffer[][6], char columnIndex){
 		PEOUT &= 0xBF; //latcher Display 4.
 	
 	
-	updateDisplay = 0;
+	updateLED = 0;
 	
 	}
 	
