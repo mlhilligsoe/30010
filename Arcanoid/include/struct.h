@@ -2,30 +2,31 @@
 #ifndef _STRUCT_H_
 #define _STRUCT_H_
 
-struct Ball(){
+struct Ball{
 long x;
 long y;
 long vx;
 long vy;
-}
+};
 
-struct Player(){
+struct Player{
 long x;
 long y;
 int points;
 char lifes;
-}
+};
 
-struct Block(){
+struct Block{
 char lifes;
 char x;
 char y;
-}
+};
 
-struct Level(){
-struct block blocks[128];
+struct Level{
+struct Block blocks[128];
 int lifes;
 char lvl;
 char wall[4];
-}
+};
+
 #endif /*_STRUCT_H_*/

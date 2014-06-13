@@ -1,11 +1,14 @@
-#include <eZ8.h>             // special encore constants, macros and flash routines
-#include <sio.h>             // special encore serial i/o routines
+//#include <eZ8.h>             // special encore constants, macros and flash routines
+//#include <sio.h>             // special encore serial i/o routines
 #include "ansi.h"
 #include "printFix.h"
 #include "SinLUT.h"
 #include "input.h"
 #include "timers.h"
-#include "display.h"
+#include "menu.h"
+#include "game.h"
+#include "struct.h"
+//#include "display.h"
 
 //Test
 
@@ -26,11 +29,11 @@ void main(){
 	char input = 0;					// 1:'00000001' for btn1 pressdown; 2:'00000010' for btn2 pressdown; 3:'00000100' for btn3 pressdown;
 
 	// Initialize terminal connection
-	init_uart(_UART0,_DEFFREQ,_DEFBAUD); // set-up UART0 to 57600, 8n1
+	//init_uart(_UART0,_DEFFREQ,_DEFBAUD); // set-up UART0 to 57600, 8n1
 
 	// Initialize time and input (µP registers)
-	initTimer();
-	initInput();
+	//initTimer();
+	//initInput();
 
 	// Initialize Game Menu
 	createMenu(menu);
@@ -41,14 +44,14 @@ void main(){
 	while( 1 ){
 
 		// Get input
-		getInput(&input);
+		//getInput(&input);
 
 		// If in Menu
 		if(menu >= 0){
 
 			// Apply Menu action if any input is given
 			if(input != 0)
-				//actionMenu(input, &selection, inMenu);
+				{}//actionMenu(input, &selection, inMenu);
 
 		}
 

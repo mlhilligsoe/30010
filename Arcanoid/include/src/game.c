@@ -1,5 +1,5 @@
-#include <eZ8.h>             // special encore constants, macros and flash routines
-#include <sio.h>             // special encore serial i/o routines
+//#include <eZ8.h>             // special encore constants, macros and flash routines
+//#include <sio.h>             // special encore serial i/o routines
 
 #include "game.h"
 #include "menu.h"
@@ -11,10 +11,10 @@ void pause(char* menu){
 
 void gameLost(struct Player* player, struct Level* level, char* menu){
 	*menu = 5;
-	createMenu(menu);
+	createMenu(*menu);
 }
 
 void gameWon(struct Player* player, struct Level* level, struct Ball* ball, char* menu){
 	*menu = 4;
-	createMenu(menu);
+	createMenu(*menu);
 }
