@@ -16,9 +16,6 @@ void blink(char on);
 void reverse(char on);
 void window(int x1, int y1, int x2, int y2, char* title, char style);
 void rotate(struct TVector *v, long deg);
-void initVector(struct TVector *v, long a, long b);
 
-struct TVector{
-long x,y;
-};
+
 #endif /* _ANSI_H_ */

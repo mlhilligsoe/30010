@@ -3,6 +3,7 @@
 #define _INPUT_H_
 
 
-char readkey();
+char getInput();
+char inputChange(char inputOld, char inputNew);
 
 #endif /*_INPUT_H_*/

@@ -2,6 +2,14 @@
 #ifndef _STRUCT_H_
 #define _STRUCT_H_
 
+
+struct TVector{
+long x,y;
+};
+
+void initVector(struct TVector *v, long a, long b);
+
+
 struct Ball{
 long x;
 long y;
@@ -28,5 +36,6 @@ int lifes;
 char lvl;
 char wall[4];
 };
+
 
 #endif /*_STRUCT_H_*/

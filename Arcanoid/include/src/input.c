@@ -2,7 +2,7 @@
 #include <sio.h>             // special encore serial i/o routines
 
 
-char readkey(){
+char getInput(){
 
 char cPFIN = PFIN;
 char cPDIN = PDIN;
@@ -16,3 +16,6 @@ btn2 = (~cPDIN & 0x08) >> 1 ;
 return (btn0 | btn1 | btn2); // char is 8 bit, the 3 functions is or'd together making 0000 0xxx as output.
 }
 
+char inputChange(char inputOld, char inputNew){
+	return (~inputOld & inputNew);
+}

@@ -12,6 +12,7 @@
 #include <sio.h>
 
 #include "SinLUT.h"
+#include "struct.h"
 // -----------------------------------------------------------------------
 // SIN: a 512 long LUT of 16bit values in 2.14 format
 // sin(x*pi/256)

@@ -2,7 +2,6 @@
 #include <sio.h>             // special encore serial i/o routines
 #include <string.h>
 #include "ansi.h"
-#include "SinLUT.h"
 #include "printFix.h"
 
 

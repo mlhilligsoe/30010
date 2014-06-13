@@ -89,7 +89,7 @@ gotoxy(22,5);
 
 void updateStopwatch(char* enabled, char* current, char* last, char* change){
 
-*current = readkey();
+*current = getInput();
 *change =(~(*last) & (*current));
 
 if(*change == 1){

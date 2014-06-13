@@ -1,16 +1,14 @@
-//#include <eZ8.h>             // special encore constants, macros and flash routines
-//#include <sio.h>             // special encore serial i/o routines
+#include <eZ8.h>             // special encore constants, macros and flash routines
+#include <sio.h>             // special encore serial i/o routines
 #include "ansi.h"
 #include "printFix.h"
-#include "SinLUT.h"
+//#include "SinLUT.h"
 #include "input.h"
 #include "timers.h"
 #include "menu.h"
 #include "game.h"
 #include "struct.h"
 //#include "display.h"
-
-//Test
 
 void main(){
 
@@ -26,10 +24,10 @@ void main(){
 	char selection = 0; 			// Defines the current menu selection
 
 	// Initialize input variables
-	char input = 0;					// 1:'00000001' for btn1 pressdown; 2:'00000010' for btn2 pressdown; 3:'00000100' for btn3 pressdown;
+	char input = 0, inputOld = 0, inputNew = 0;					// 1:'00000001' for btn1 pressdown; 2:'00000010' for btn2 pressdown; 3:'00000100' for btn3 pressdown;
 
 	// Initialize terminal connection
-	//init_uart(_UART0,_DEFFREQ,_DEFBAUD); // set-up UART0 to 57600, 8n1
+	init_uart(_UART0,_DEFFREQ,_DEFBAUD); // set-up UART0 to 57600, 8n1
 
 	// Initialize time and input (µP registers)
 	//initTimer();
@@ -44,19 +42,21 @@ void main(){
 	while( 1 ){
 
 		// Get input
-		//getInput(&input);
+		inputOld = inputNew;
+		inputNew = getInput();
+		input = inputChange(inputOld, inputNew);
 
 		// If in Menu
-		if(menu >= 0){
+		if(menu > 0){
 
 			// Apply Menu action if any input is given
 			if(input != 0)
-				{}//actionMenu(input, &selection, inMenu);
+				menuInput(input, &selection, &menu);
 
 		}
 
 		// Else if not in Menu
-		else if( menu < 0){
+		else if( menu <= 0){
 			/* Test if pausing (btn1 pressed)
 			if(input & 0x01 == 0x02) {
 				pause(&menu);
