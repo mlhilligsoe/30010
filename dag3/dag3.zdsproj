@@ -10,7 +10,12 @@
 <file filter-key="">include\src\printFix.c</file>
 <file filter-key="">include\src\input.c</file>
 <file filter-key="">include\src\timers.c</file>
-<file filter-key="">include\src\dipslay.c</file>
+<file filter-key="">include\src\struct.c</file>
+<file filter-key="">include\src\LED.c</file>
+<file filter-key="">include\src\game.c</file>
+<file filter-key="">include\src\gamePhysics.c</file>
+<file filter-key="">include\src\graphics.c</file>
+<file filter-key="">include\src\menu.c</file>
 </files>
 
 <!-- configuration information -->
@@ -78,7 +83,7 @@
 <option name="shortsize" type="integer" change-action="rebuild">16</option>
 <option name="stdinc" type="string" change-action="compile"></option>
 <option name="strict" type="boolean" change-action="compile">true</option>
-<option name="usrinc" type="string" change-action="compile">E:\DTU\30010\dag3\include;E:\DTU\30010\dag3\include</option>
+<option name="usrinc" type="string" change-action="compile">E:\DTU\30010\dag3\include;E:\DTU\30010\dag3\include;C:\Users\Erik\Documents\30010\dag3\include</option>
 <option name="watch" type="boolean" change-action="none">false</option>
 </options>
 </tool>

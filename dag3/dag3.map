@@ -4,13 +4,15 @@ Copyright (C) 1999-2004 ZiLOG, Inc. All Rights Reserved
 
 LINK MAP:
 
-DATE:      Thu Jun 12 12:30:21 2014
+DATE:      Fri Jun 13 11:02:05 2014
 PROCESSOR: assembler
 FILES:     C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\startupL.obj
            .\zsldevinit.obj
            .\main.obj             .\ansi.obj             .\SinLUT.obj           
            .\printFix.obj         .\input.obj            .\timers.obj           
-           .\dipslay.obj          
+           .\struct.obj           .\LED.obj              .\game.obj             
+           .\gamePhysics.obj
+           .\graphics.obj         .\menu.obj             
            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\crtrevaaLDD.lib
            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\fpdumyL.obj
            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\zslLYD.lib
@@ -32,7 +34,9 @@ COMMAND LIST:
 /* -NOoptlink -optsize -peephole -NOpromote -quiet -regvar -revaa */
 /* -NOsdiopt -shortsize:16 */
 /* -stdinc:"C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std;C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog;C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\Z8Encore_F640X" */
-/* -strict -usrinc:"E:\DTU\30010\dag3\include" -NOwatch -cpu:Z8F6403 */
+/* -strict */
+/* -usrinc:"E:\DTU\30010\dag3\include;C:\Users\Erik\Documents\30010\dag3\include" */
+/* -NOwatch -cpu:Z8F6403 */
 /* -asmsw:" -cpu:Z8F6403 -define:_Z8F6403=1 -define:_Z8ENCORE_640_FAMILY=1 -define:_Z8ENCORE_F640X=1 -define:_MODEL_LARGE=1 -include:C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std;C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog;C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\Z8Encore_F640X -revaa" */
 
 /* assembler options */
@@ -81,10 +85,10 @@ define _zsl_g_clock_xdefine = 18432000
 /* Set frequency to 18432000 Hz */
 define __user_frequency = 18432000
 
-"E:\DTU\30010\dag3\dag3"=  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\startupL.obj,  .\zsldevinit.obj,  .\main.obj,  .\ansi.obj,  .\SinLUT.obj,  .\printFix.obj,  .\input.obj,  .\timers.obj,  .\dipslay.obj,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\crtrevaaLDD.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\fpdumyL.obj,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\zslLYD.lib
+"C:\Users\Erik\Documents\30010\dag3\dag3"=  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\startupL.obj,  .\zsldevinit.obj,  .\main.obj,  .\ansi.obj,  .\SinLUT.obj,  .\printFix.obj,  .\input.obj,  .\timers.obj,  .\struct.obj,  .\LED.obj,  .\game.obj,  .\gamePhysics.obj,  .\graphics.obj,  .\menu.obj,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\crtrevaaLDD.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\fpdumyL.obj,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\zslLYD.lib
 
-WARNING (724) --> Symbol _updateDisplay (.\timers.obj) is not defined.
 WARNING (724) --> Symbol _timer (.\timers.obj) is not defined.
+WARNING (724) --> Symbol _updateLED (.\timers.obj) is not defined.
 
 SEGMENT OVERLAYS:
 =================
@@ -123,12 +127,12 @@ __VECTORS          absolute data            C:0000      C:0037       38h
 _sputch_TEXT       normal data              C:2012      C:2040       2fh
 _uputch_TEXT       normal data              C:1FE3      C:1FFB       19h
 abs_TEXT           normal data              C:2250      C:228D       3eh
-ansi_TEXT          normal data              C:0434      C:0D56      923h
+ansi_TEXT          normal data              C:0434      C:0B26      6f3h
 CODE               normal data              C:0038      C:02B9      282h
-dipslay_TEXT       normal data              C:157F      C:1893      315h
 FAR_DATA           * segment copy *         C:247A      C:2B45      6cch
 getfreq_TEXT       normal data              C:1B4A      C:1B60       17h
 input_TEXT         normal data              C:0ED2      C:0F11       40h
+led_TEXT           normal data              C:157F      C:1893      315h
 main_TEXT          normal data              C:03A6      C:0433       8eh
 mstring_TEXT       normal data              C:2203      C:224F       4dh
 nt_send_TEXT       normal data              C:1976      C:1B49      1d4h
@@ -136,7 +140,7 @@ putch_TEXT         normal data              C:2363      C:23BF       5dh
 reverse_TEXT       normal data              C:228E      C:2362       d5h
 rintfix_TEXT       normal data              C:0DB9      C:0ED1      119h
 ROM_TEXT           normal data              C:02BA      C:0334       7bh
-sinlut_TEXT        normal data              C:0D57      C:0DB8       62h
+sinlut_TEXT        normal data              C:0B27      C:0DB8      292h
 sio_TEXT           normal data              C:1894      C:1975       e2h
 startup            normal data              C:0335      C:03A5       71h
 strlen_TEXT        normal data              C:1F7A      C:1FBB       42h
@@ -176,13 +180,21 @@ Module: ..\UART\COMMON\WRITEUART0.C (Library: zslLYD.lib) Version: 1:0 02/23/200
     Segment: teuart0_TEXT                        C:23C0      C:2479       bah
 
 
-Module: .\MAIN.C (File: main.obj) Version: 1:0 06/12/2014 12:30:21
+Module: .\MAIN.C (File: main.obj) Version: 1:0 06/13/2014 10:55:32
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: FAR_DATA                            E:0127      E:0146       20h
     Segment: FAR_DATA                            E:0731      E:076B       3bh
     Segment: main_TEXT                           C:03A6      C:0433       8eh
+
+
+Module: C:\Users\Erik\Documents\30010\dag3\zsldevinit.asm (File: zsldevinit.obj) Version: 1:0 06/13/2014 10:55:32
+
+    Name                                        Base        Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: CODE                                C:0038      C:0039        2h
+    Segment: FAR_DATA                            E:0122      E:0126        5h
 
 
 Module: COMMON\ABS.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:08
@@ -349,14 +361,6 @@ Module: common\uwmul.asm (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:2
     Segment: CODE                                C:0175      C:01A7       33h
 
 
-Module: E:\DTU\30010\dag3\zsldevinit.asm (File: zsldevinit.obj) Version: 1:0 06/11/2014 14:19:30
-
-    Name                                        Base        Top      Size
-    --------------------------------------- ----------- ----------- ---------
-    Segment: CODE                                C:0038      C:0039        2h
-    Segment: FAR_DATA                            E:0122      E:0126        5h
-
-
 Module: get_freq.asm (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:19
 
     Name                                        Base        Top      Size
@@ -364,46 +368,46 @@ Module: get_freq.asm (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:19
     Segment: getfreq_TEXT                        C:1B4A      C:1B60       17h
 
 
-Module: INCLUDE\SRC\ANSI.C (File: ansi.obj) Version: 1:0 06/11/2014 14:19:30
+Module: INCLUDE\SRC\ANSI.C (File: ansi.obj) Version: 1:0 06/13/2014 10:55:32
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: ansi_TEXT                           C:0434      C:0D56      923h
+    Segment: ansi_TEXT                           C:0434      C:0B26      6f3h
     Segment: ROM_TEXT                            C:02BA      C:02E1       28h
 
 
-Module: INCLUDE\SRC\DIPSLAY.C (File: dipslay.obj) Version: 1:0 06/12/2014 12:30:21
-
-    Name                                        Base        Top      Size
-    --------------------------------------- ----------- ----------- ---------
-    Segment: dipslay_TEXT                        C:157F      C:1893      315h
-    Segment: FAR_DATA                            E:0549      E:072C      1e4h
-    Segment: FAR_DATA                            E:07B2      E:07EC       3bh
-
-
-Module: INCLUDE\SRC\INPUT.C (File: input.obj) Version: 1:0 06/11/2014 14:19:30
+Module: INCLUDE\SRC\INPUT.C (File: input.obj) Version: 1:0 06/13/2014 10:55:33
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: input_TEXT                          C:0ED2      C:0F11       40h
 
 
-Module: INCLUDE\SRC\PRINTFIX.C (File: printFix.obj) Version: 1:0 06/11/2014 14:19:30
+Module: INCLUDE\SRC\LED.C (File: LED.obj) Version: 1:0 06/13/2014 10:55:33
+
+    Name                                        Base        Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: FAR_DATA                            E:0549      E:072C      1e4h
+    Segment: FAR_DATA                            E:07B2      E:07EC       3bh
+    Segment: led_TEXT                            C:157F      C:1893      315h
+
+
+Module: INCLUDE\SRC\PRINTFIX.C (File: printFix.obj) Version: 1:0 06/13/2014 10:55:33
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: rintfix_TEXT                        C:0DB9      C:0ED1      119h
 
 
-Module: INCLUDE\SRC\SINLUT.C (File: SinLUT.obj) Version: 1:0 06/11/2014 14:19:30
+Module: INCLUDE\SRC\SINLUT.C (File: SinLUT.obj) Version: 1:0 06/13/2014 10:55:33
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: FAR_DATA                            E:0147      E:0546      400h
-    Segment: sinlut_TEXT                         C:0D57      C:0DB8       62h
+    Segment: sinlut_TEXT                         C:0B27      C:0DB8      292h
 
 
-Module: INCLUDE\SRC\TIMERS.C (File: timers.obj) Version: 1:0 06/12/2014 12:30:21
+Module: INCLUDE\SRC\TIMERS.C (File: timers.obj) Version: 1:0 06/13/2014 10:55:33
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
@@ -538,18 +542,17 @@ _atan2                                C:003A fpdumyl         CODE
 _bgcolor                              C:04CA ANSI            ansi_TEXT                       
 _blink                                C:0722 ANSI            ansi_TEXT                       
 _c_startup                            C:0335 startupl        startup                         
-_cColumn                              E:0726 DIPSLAY         FAR_DATA                        
+_cColumn                              E:0726 LED             FAR_DATA                        
 _ceil                                 C:003A fpdumyl         CODE                            
-_character_data                       E:054B DIPSLAY         FAR_DATA                        
+_character_data                       E:054B LED             FAR_DATA                        
 _close_periphdevice                   C:0039 zsldevinit      CODE                            
 _clreol                               C:068C ANSI            ansi_TEXT                       
 _clrscr                               C:065B ANSI            ansi_TEXT                       
 _color                                C:0515 ANSI            ansi_TEXT                       
-_columnIndex                          E:0727 DIPSLAY         FAR_DATA                        
-_cos                                  C:0D7F SINLUT          sinlut_TEXT                     
+_columnIndex                          E:0727 LED             FAR_DATA                        
+_cos                                  C:0B4F SINLUT          sinlut_TEXT                     
 _cosh                                 C:003A fpdumyl         CODE                            
-_displayIndex                         E:0728 DIPSLAY         FAR_DATA                        
-_displayTextOnLed                     C:1596 DIPSLAY         dipslay_TEXT                    
+_displayTextOnLed                     C:1596 LED             led_TEXT                        
 _drawStopwatch                        C:0FEA TIMERS          timers_TEXT                     
 _errno                                E:0100 startupl        FAR_BSS                         
 _exit                                 C:03A4 startupl        startup                         
@@ -572,11 +575,12 @@ _init_uart                            C:18C2 SIO             sio_TEXT
 _initAll                              C:0F3F TIMERS          timers_TEXT                     
 _initTimer0                           C:0F4E TIMERS          timers_TEXT                     
 _initTimer1                           C:0F79 TIMERS          timers_TEXT                     
-_initVector                           C:0CFC ANSI            ansi_TEXT                       
+_initVector                           C:0D5E SINLUT          sinlut_TEXT                     
 _ldexp                                C:003A fpdumyl         CODE                            
-_LEDinit                              C:157F DIPSLAY         dipslay_TEXT                    
-_LEDsetString                         C:1650 DIPSLAY         dipslay_TEXT                    
-_LEDupdate                            C:1729 DIPSLAY         dipslay_TEXT                    
+_LEDIndex                             E:0728 LED             FAR_DATA                        
+_LEDinit                              C:157F LED             led_TEXT                        
+_LEDsetString                         C:1650 LED             led_TEXT                        
+_LEDupdate                            C:1729 LED             led_TEXT                        
 _len_farbss                         00000021 (User Defined)
 _len_fardata                        000006CC (User Defined)
 _len_nearbss                        00000000 (User Defined)
@@ -601,11 +605,11 @@ _readkey                              C:0ED2 INPUT           input_TEXT
 _reset                                C:0F12 TIMERS          timers_TEXT                     
 _resetbgcolor                         C:05CB ANSI            ansi_TEXT                       
 _reverse                              C:0787 ANSI            ansi_TEXT                       
-_rotate                               C:0B27 ANSI            ansi_TEXT                       
-_runs                                 E:0729 DIPSLAY         FAR_DATA                        
-_scrollSpeed                          E:072B DIPSLAY         FAR_DATA                        
+_rotate                               C:0B89 SINLUT          sinlut_TEXT                     
+_runs                                 E:0729 LED             FAR_DATA                        
+_scrollSpeed                          E:072B LED             FAR_DATA                        
 _select_port                          C:1894 SIO             sio_TEXT                        
-_sin                                  C:0D57 SINLUT          sinlut_TEXT                     
+_sin                                  C:0B27 SINLUT          sinlut_TEXT                     
 _SIN                                  E:0147 SINLUT          FAR_DATA                        
 _sinh                                 C:003A fpdumyl         CODE                            
 _sqrt                                 C:003A fpdumyl         CODE                            
@@ -627,9 +631,9 @@ Name                              Use         Module
 --------------------------------- ----------- -------------------------
 _timer                            UNDEFINED
                                   Referenced  INCLUDE\SRC\TIMERS.C
-_updateDisplay                    UNDEFINED
+_updateLED                        UNDEFINED
                                   Referenced  INCLUDE\SRC\TIMERS.C
-                                  Referenced  INCLUDE\SRC\DIPSLAY.C
+                                  Referenced  INCLUDE\SRC\LED.C
 
 
 START ADDRESS:
