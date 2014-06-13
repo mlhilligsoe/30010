@@ -8,7 +8,7 @@
 
 void LEDinit(){
 PEDD = 0x00;
-PGDD = 0x00; //dara direction
+PGDD = 0x00; //data direction
 
 //initTimer1(); //opsætter timer1 og starter den
 
