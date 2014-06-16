@@ -14,8 +14,9 @@ updateBallPos(struct Ball* ball){
     char new_x = (char) (ball->x >>16);
     char new_y = (char) (ball->y >>16);
     
+    if(old_x != new_x || old_y != new_y){
     redrawBall(old_x, old_y, new_x, new_y);
-    
+    }
     
 }
 
