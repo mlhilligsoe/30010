@@ -22,6 +22,7 @@ long x;
 long y;
 int points;
 char lifes;
+char level;
 };
 
 struct Block{
@@ -33,7 +34,6 @@ char y;
 struct Level{
 struct Block blocks[128];
 int lifes;
-char lvl;
 char wall[4];
 };
 

@@ -45,6 +45,9 @@ void main(){
 		inputOld = inputNew;
 		inputNew = getInput();
 		input = inputChange(inputOld, inputNew);
+		struct Player player;
+		struct Ball ball;
+		struct Level level;
 
 		// If in Menu
 		if(menu > 0){
@@ -55,14 +58,14 @@ void main(){
 
 		}
 
-		// Else if not in Menu
-		else if( menu <= 0){
-			/* Test if pausing (btn1 pressed)
+		// Else if menu == 0, game is running
+		else if( menu == 0){
+			// Test if pausing (btn1 pressed)
 			if(input & 0x01 == 0x02) {
 				pause(&menu);
 			}
 
-			// Else continue game
+			/*// Else continue game
 			//else {
 
 				// Update positions and redraw ball & player
@@ -81,7 +84,7 @@ void main(){
 			}*/
 		}
 
-		// If not in menu or game, something went wrong. Break while loop and end application.
+		// If menu < 0, something went wrong.
 		else{
 			break;
 		}

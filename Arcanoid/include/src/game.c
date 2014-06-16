@@ -5,8 +5,9 @@
 #include "menu.h"
 #include "struct.h"
 
-void pause(char* menu){
+void pause(char* menu, char* selection){
 	*menu = 3;
+	createMenu(*menu, selection);
 }
 
 void gameLost(struct Player* player, struct Level* level, char* menu){
