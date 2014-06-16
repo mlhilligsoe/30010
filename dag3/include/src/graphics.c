@@ -19,17 +19,17 @@ void drawEdges(){
 		}
 }
 
-void drawLevel(struct Ball* ball, struct Player* player, struct Block* blocks[]){
+void drawLevel(struct Ball ball, struct Player player, struct Block blocks[]){
 	clrscr();
 	drawEdges();
 
 	for(i=0;i<(sizeof(blocks)/sizeof(blocks[0]));i++){	
-		drawBlock(*blocks[i]); // prints blocks
+		drawBlock(blocks[i]); // prints blocks
 		}
 
-	redrawPlayer(*player.x,*player.y,*player.x,*player.y); // prints player bar at 10,23
+	redrawPlayer(player.x,player.y,player.x,player.y); // prints player bar at 10,23
 
-	redrawBall(*ball.x,*ball.y,*ball.x,*ball.y);  // prints ball at 10,10
+	redrawBall(ball.x,ball.y,ball.x,ball.y);  // prints ball at 10,10
 }
 
 
