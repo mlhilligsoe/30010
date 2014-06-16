@@ -19,3 +19,7 @@ void gameWon(struct Player* player, struct Level* level, struct Ball* ball, char
 	*menu = 4;
 	createMenu(*menu, selection);
 }
+
+void setLevel(struct Player* player, struct Ball* ball, struct Level* level){
+
+}
