@@ -327,7 +327,7 @@ MDIChild=False
 MRUDockBottomPos=135
 MRUDockID=0
 MRUDockLeftPos=1
-MRUDockRightPos=772
+MRUDockRightPos=1366
 MRUDockTopPos=5
 MRUDockingState=0
 MRUFloatCX=300
@@ -335,7 +335,7 @@ MRUFloatCY=180
 MRUFloatStyle=4
 MRUFloatXPos=-2147483648
 MRUFloatYPos=0
-MRUHorzDockCX=771
+MRUHorzDockCX=1365
 MRUHorzDockCY=130
 MRUVertDockCX=300
 MRUVertDockCY=180
@@ -355,7 +355,7 @@ Docking=True
 DockingStyle=61440
 ExStyle=3889
 MDIChild=False
-MRUDockBottomPos=445
+MRUDockBottomPos=461
 MRUDockID=0
 MRUDockLeftPos=0
 MRUDockRightPos=180
@@ -369,7 +369,7 @@ MRUFloatYPos=0
 MRUHorzDockCX=300
 MRUHorzDockCY=180
 MRUVertDockCX=180
-MRUVertDockCY=447
+MRUVertDockCY=463
 PctWidth=1000000
 PrevFloating=False
 ResourceID=0
@@ -389,7 +389,7 @@ MDIChild=False
 MRUDockBottomPos=28
 MRUDockID=59419
 MRUDockLeftPos=-1
-MRUDockRightPos=771
+MRUDockRightPos=1365
 MRUDockTopPos=-1
 MRUDockingState=0
 MRUFloatCX=324
@@ -397,10 +397,10 @@ MRUFloatCY=29
 MRUFloatStyle=8196
 MRUFloatXPos=-2147483648
 MRUFloatYPos=0
-MRUHorzDockCX=772
+MRUHorzDockCX=1366
 MRUHorzDockCY=29
-MRUVertDockCX=122
-MRUVertDockCY=255
+MRUVertDockCX=80
+MRUVertDockCY=461
 MRUWidth=324
 PctWidth=1000000
 PrevFloating=False
@@ -491,20 +491,12 @@ ptn_Child2=ChildFrames
 
 [WorkState_v1_1.Frames.ChildFrames]
 ptn_Child1=Document-0
-ptn_Child10=Document-9
-ptn_Child11=Document-10
-ptn_Child12=Document-11
-ptn_Child13=Document-12
-ptn_Child14=Document-13
-ptn_Child15=Document-14
 ptn_Child2=Document-1
 ptn_Child3=Document-2
 ptn_Child4=Document-3
 ptn_Child5=Document-4
 ptn_Child6=Document-5
 ptn_Child7=Document-6
-ptn_Child8=Document-7
-ptn_Child9=Document-8
 
 [WorkState_v1_1.Frames.ChildFrames.Document-0]
 ptn_Child1=ViewFrame-0
@@ -513,152 +505,72 @@ ptn_Child1=ViewFrame-0
 DocPathName=.\main.c
 DocTemplateIndex=0
 DocumentString=IDE Document
-IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAALBEAAAAAMEBAAAAA
+IsActiveChildFrame=True
+WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAAGGEAAAAAHJBAAAAA
 
 [WorkState_v1_1.Frames.ChildFrames.Document-1]
 ptn_Child1=ViewFrame-0
 
 [WorkState_v1_1.Frames.ChildFrames.Document-1.ViewFrame-0]
-DocPathName=include\src\timers.c
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPCDAAAAAACDAAAAAAIDEAAAAAJGBAAAAA
-
-[WorkState_v1_1.Frames.ChildFrames.Document-10]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-10.ViewFrame-0]
-DocPathName=include\src\input.c
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPNHAAAAAANHAAAAAAKECAAAAANLBAAAAA
-
-[WorkState_v1_1.Frames.ChildFrames.Document-11]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-11.ViewFrame-0]
-DocPathName=include\src\LED.c
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPAAAAAAAAAAAAAAAANMBAAAAAAEBAAAAA
-
-[WorkState_v1_1.Frames.ChildFrames.Document-12]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-12.ViewFrame-0]
-DocPathName=.\zsldevinit.asm
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAAGOBAAAAAJFBAAAAA
-
-[WorkState_v1_1.Frames.ChildFrames.Document-13]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-13.ViewFrame-0]
-DocPathName=include\src\structs.c
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPCDAAAAAACDAAAAAAPPBAAAAACHBAAAAA
-
-[WorkState_v1_1.Frames.ChildFrames.Document-14]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-14.ViewFrame-0]
-DocPathName=include\structs.h
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=True
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPLEAAAAAALEAAAAAAIBCAAAAALIBAAAAA
-
-[WorkState_v1_1.Frames.ChildFrames.Document-2]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-2.ViewFrame-0]
-DocPathName=include\struct.h
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPLEAAAAAALEAAAAAABFEAAAAACIBAAAAA
-
-[WorkState_v1_1.Frames.ChildFrames.Document-3]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-3.ViewFrame-0]
-DocPathName=include\src\struct.c
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAAKGEAAAAALJBAAAAA
-
-[WorkState_v1_1.Frames.ChildFrames.Document-4]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-4.ViewFrame-0]
-DocPathName=include\src\SinLUT.c
+DocPathName=include\graphics.h
 DocTemplateIndex=0
 DocumentString=IDE Document
 IsActiveChildFrame=False
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPNHAAAAAANHAAAAAADIEAAAAAELBAAAAA
 
-[WorkState_v1_1.Frames.ChildFrames.Document-5]
+[WorkState_v1_1.Frames.ChildFrames.Document-2]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_1.Frames.ChildFrames.Document-5.ViewFrame-0]
-DocPathName=include\timers.h
+[WorkState_v1_1.Frames.ChildFrames.Document-2.ViewFrame-0]
+DocPathName=INCLUDE\SRC\MENU.C
 DocTemplateIndex=0
 DocumentString=IDE Document
 IsActiveChildFrame=False
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPGJAAAAAAGJAAAAAAMJEAAAAANMBAAAAA
 
-[WorkState_v1_1.Frames.ChildFrames.Document-6]
+[WorkState_v1_1.Frames.ChildFrames.Document-3]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_1.Frames.ChildFrames.Document-6.ViewFrame-0]
-DocPathName=include\src\menu.c
+[WorkState_v1_1.Frames.ChildFrames.Document-3.ViewFrame-0]
+DocPathName=include\src\graphics.c
 DocTemplateIndex=0
 DocumentString=IDE Document
 IsActiveChildFrame=False
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPAAAAAAAAAAAAAAAAGAEAAAAAHDBAAAAA
 
-[WorkState_v1_1.Frames.ChildFrames.Document-7]
+[WorkState_v1_1.Frames.ChildFrames.Document-4]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_1.Frames.ChildFrames.Document-7.ViewFrame-0]
-DocPathName=include\src\printFix.c
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAAPBEAAAAAAFBAAAAA
-
-[WorkState_v1_1.Frames.ChildFrames.Document-8]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-8.ViewFrame-0]
-DocPathName=include\src\ansi.c
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPLEAAAAAALEAAAAAAIBCAAAAALIBAAAAA
-
-[WorkState_v1_1.Frames.ChildFrames.Document-9]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-9.ViewFrame-0]
+[WorkState_v1_1.Frames.ChildFrames.Document-4.ViewFrame-0]
 DocPathName=include\src\game.c
 DocTemplateIndex=0
 DocumentString=IDE Document
 IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAABDCAAAAAEKBAAAAA
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAADIEAAAAAGJBAAAAA
+
+[WorkState_v1_1.Frames.ChildFrames.Document-5]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_1.Frames.ChildFrames.Document-5.ViewFrame-0]
+DocPathName=include\src\gamePhysics.c
+DocTemplateIndex=0
+DocumentString=IDE Document
+IsActiveChildFrame=False
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPNHAAAAAANHAAAAAAMJEAAAAAPKBAAAAA
+
+[WorkState_v1_1.Frames.ChildFrames.Document-6]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_1.Frames.ChildFrames.Document-6.ViewFrame-0]
+DocPathName=include\game.h
+DocTemplateIndex=0
+DocumentString=IDE Document
+IsActiveChildFrame=False
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPAAAAAAAAAAAAAAAAPBEAAAAACDBAAAAA
 
 [WorkState_v1_1.Frames.MainFrame]
-Title=arcanoid -- ZDS II - Z8 Encore! Family -- structs.h - [structs.h]
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAAADIPPPPAADIPPPPPPPPPPPPPPPPPPPPAAAAAAAAEAAAAAAANGDAAAAAOBCAAAAA
+Title=arcanoid -- ZDS II - Z8 Encore! Family -- main - [main]
+WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAAADIPPPPAADIPPPPPPPPPPPPPPPPPPPPAAAAAAAAEAAAAAAANGDAAAAAOBCAAAAA
 
 [WorkState_v1_1.ToolBarMgr]
 CoolLook=True

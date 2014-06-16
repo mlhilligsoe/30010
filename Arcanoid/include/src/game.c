@@ -10,12 +10,12 @@ void pause(char* menu, char* selection){
 	createMenu(*menu, selection);
 }
 
-void gameLost(struct Player* player, struct Level* level, char* menu){
+void gameLost(struct Player* player, struct Level* level, char* menu, char* selection){
 	*menu = 5;
-	createMenu(*menu);
+	createMenu(*menu, selection);
 }
 
-void gameWon(struct Player* player, struct Level* level, struct Ball* ball, char* menu){
+void gameWon(struct Player* player, struct Level* level, struct Ball* ball, char* menu, char* selection){
 	*menu = 4;
-	createMenu(*menu);
+	createMenu(*menu, selection);
 }

@@ -22,6 +22,9 @@ void main(){
 	// Initialize Menu variables
 	char menu = 1; 				// 0: Start Menu; >0: Other Menus; <0: Game
 	char selection = 0; 			// Defines the current menu selection
+	struct Player player;
+	struct Ball ball;
+	struct Level level;
 
 	// Initialize input variables
 	char input = 0, inputOld = 0, inputNew = 0;					// 1:'00000001' for btn1 pressdown; 2:'00000010' for btn2 pressdown; 3:'00000100' for btn3 pressdown;
@@ -34,7 +37,7 @@ void main(){
 	//initInput();
 
 	// Initialize Game Menu
-	createMenu(menu);
+	createMenu(menu, &selection);
 
 	/***************************/
 	/* Main Loop	           */
@@ -45,16 +48,13 @@ void main(){
 		inputOld = inputNew;
 		inputNew = getInput();
 		input = inputChange(inputOld, inputNew);
-		struct Player player;
-		struct Ball ball;
-		struct Level level;
 
 		// If in Menu
 		if(menu > 0){
 
 			// Apply Menu action if any input is given
 			if(input != 0)
-				menuInput(input, &selection, &menu);
+				menuInput(input, &selection, &menu, &level, &player, &ball);
 
 		}
 
@@ -62,7 +62,7 @@ void main(){
 		else if( menu == 0){
 			// Test if pausing (btn1 pressed)
 			if(input & 0x01 == 0x02) {
-				pause(&menu);
+				pause(&menu, &selection);
 			}
 
 			/*// Else continue game

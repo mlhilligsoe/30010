@@ -2,11 +2,14 @@
 #include <sio.h>   
 #include "struct.h"
 #include "graphics.h"
+#include "ansi.h"
 
 void drawEdges(){
+	int i;
+
 	gotoxy(0,1);
 		printf("%c",218);
-	for(i=0;i<78;i++){	// prints top 
+	for(i=0;i<77;i++){	// prints top 
 		printf("%c",196);
 		}
 	printf("%c",191);
@@ -20,6 +23,8 @@ void drawEdges(){
 }
 
 void drawLevel(struct Ball ball, struct Player player, struct Block blocks[]){
+	int i;
+
 	clrscr();
 	drawEdges();
 
@@ -27,9 +32,11 @@ void drawLevel(struct Ball ball, struct Player player, struct Block blocks[]){
 		drawBlock(blocks[i]); // prints blocks
 		}
 
-	redrawPlayer(player.x,player.y,player.x,player.y); // prints player bar at 10,23
+//	redrawPlayer(player.x,player.y,player.x,player.y); // prints player 
+		redrawPlayer(10,23,10,23); // prints player 
 
-	redrawBall(ball.x,ball.y,ball.x,ball.y);  // prints ball at 10,10
+//redrawBall(ball.x,ball.y,ball.x,ball.y);  // prints ball 
+redrawBall(10,10,10,10);  // prints ball 
 }
 
 

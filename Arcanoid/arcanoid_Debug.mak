@@ -61,6 +61,10 @@ clean:
             del C:\Users\Erik\Documents\30010\Arcanoid\SinLUT.obj
 	@if exist C:\Users\Erik\Documents\30010\Arcanoid\timers.obj  \
             del C:\Users\Erik\Documents\30010\Arcanoid\timers.obj
+	@if exist C:\Users\Erik\Documents\30010\Arcanoid\graphics.obj  \
+            del C:\Users\Erik\Documents\30010\Arcanoid\graphics.obj
+	@if exist C:\Users\Erik\Documents\30010\Arcanoid\gamePhysics.obj  \
+            del C:\Users\Erik\Documents\30010\Arcanoid\gamePhysics.obj
 
 rebuildall: clean Debug
 
@@ -78,7 +82,9 @@ OBJS =  \
             C:\Users\Erik\Documents\30010\Arcanoid\menu.obj  \
             C:\Users\Erik\Documents\30010\Arcanoid\printFix.obj  \
             C:\Users\Erik\Documents\30010\Arcanoid\SinLUT.obj  \
-            C:\Users\Erik\Documents\30010\Arcanoid\timers.obj
+            C:\Users\Erik\Documents\30010\Arcanoid\timers.obj  \
+            C:\Users\Erik\Documents\30010\Arcanoid\graphics.obj  \
+            C:\Users\Erik\Documents\30010\Arcanoid\gamePhysics.obj
 
 arcanoid: $(OBJS)
 	 $(LINK)  @C:\Users\Erik\Documents\30010\Arcanoid\arcanoid_Debug.linkcmd
@@ -190,6 +196,7 @@ C:\Users\Erik\Documents\30010\Arcanoid\menu.obj :  \
             C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
             C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
             C:\Users\Erik\DOCUME~1\30010\Arcanoid\include\ansi.h  \
+            C:\Users\Erik\DOCUME~1\30010\Arcanoid\include\graphics.h  \
             C:\Users\Erik\DOCUME~1\30010\Arcanoid\include\menu.h  \
             C:\Users\Erik\DOCUME~1\30010\Arcanoid\include\struct.h
 	 $(CC)  $(CFLAGS) C:\Users\Erik\Documents\30010\Arcanoid\include\src\menu.c
@@ -248,4 +255,40 @@ C:\Users\Erik\Documents\30010\Arcanoid\timers.obj :  \
             C:\Users\Erik\DOCUME~1\30010\Arcanoid\include\input.h  \
             C:\Users\Erik\DOCUME~1\30010\Arcanoid\include\timers.h
 	 $(CC)  $(CFLAGS) C:\Users\Erik\Documents\30010\Arcanoid\include\src\timers.c
+
+C:\Users\Erik\Documents\30010\Arcanoid\graphics.obj :  \
+            C:\Users\Erik\Documents\30010\Arcanoid\include\src\graphics.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\dmadefs.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\ez8.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\gpio.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
+            C:\Users\Erik\DOCUME~1\30010\Arcanoid\include\ansi.h  \
+            C:\Users\Erik\DOCUME~1\30010\Arcanoid\include\graphics.h  \
+            C:\Users\Erik\DOCUME~1\30010\Arcanoid\include\struct.h
+	 $(CC)  $(CFLAGS) C:\Users\Erik\Documents\30010\Arcanoid\include\src\graphics.c
+
+C:\Users\Erik\Documents\30010\Arcanoid\gamePhysics.obj :  \
+            C:\Users\Erik\Documents\30010\Arcanoid\include\src\gamePhysics.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\dmadefs.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\ez8.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\gpio.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
+            C:\Users\Erik\DOCUME~1\30010\Arcanoid\include\struct.h
+	 $(CC)  $(CFLAGS) C:\Users\Erik\Documents\30010\Arcanoid\include\src\gamePhysics.c
 

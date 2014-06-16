@@ -4,6 +4,7 @@
 #include "menu.h"
 #include "struct.h"
 #include "ansi.h"
+#include "graphics.h"
 
 void createMenu(char menu, char* selection){
 	int i;
@@ -106,15 +107,15 @@ void menuInput(char input, char* selection, char* menu, struct Level* level, str
 		moveCursor(input, selection, 0, 1);
 
 		//Select entry
-		if(input & 0x07 == 0x02 && *selection == 0){
+		if(input == 0x02 && *selection == 0){
 			player->level = *selection;
-			setLevel(level, player, ball);
-			drawLevel(ball, player, level->blocks);
+			//setLevel(level, player, ball);
+			drawLevel(*ball, *player, level->blocks);
 			*menu = 0;
 		}
-		else if(input & 0x07 == 0x02 && *selection == 1){
+		else if(input == 0x02 && *selection == 1){
 			*menu = 2;
-			createMenu(menu, selection);
+			createMenu(*menu, selection);
 		}
 		break;
 	case 2:
@@ -122,15 +123,15 @@ void menuInput(char input, char* selection, char* menu, struct Level* level, str
 		moveCursor(input, selection, 0, 5);
 
 		//Select entry
-		if(input & 0x07 == 0x02 && *selection < 5){
+		if(input == 0x02 && *selection < 5){
 			player->level = *selection;
-			setLevel(level, player, ball);
-			drawLevel(ball, player, level->blocks);
+			//setLevel(level, player, ball);
+			drawLevel(*ball, *player, level->blocks);
 			*menu = 0;
 		}
-		else if(input & 0x07 == 0x02 && *selection == 5){
+		else if(input == 0x02 && *selection == 5){
 			*menu = 1;
-			createMenu(menu, selection);
+			createMenu(*menu, selection);
 		}
 		break;
 	case 3:
@@ -138,13 +139,13 @@ void menuInput(char input, char* selection, char* menu, struct Level* level, str
 		moveCursor(input, selection, 0, 1);
 
 		//Select entry
-		if(input & 0x07 == 0x02 && *selection == 0){
-			drawLevel(ball, player, level->blocks);
+		if(input == 0x02 && *selection == 0){
+			drawLevel(*ball, *player, level->blocks);
 			*menu = 0;
 		}
-		else if(input & 0x07 == 0x02 && *selection == 1){
+		else if(input == 0x02 && *selection == 1){
 			*menu = 1;
-			createMenu(menu, selection);
+			createMenu(*menu, selection);
 		}
 		break;
 	case 4:
@@ -152,10 +153,10 @@ void menuInput(char input, char* selection, char* menu, struct Level* level, str
 		moveCursor(input, selection, 1, 1);
 
 		//Select entry
-		if(input & 0x07 == 0x02 && *selection == 1){
+		if(input == 0x02 && *selection == 1){
 			player->level = player->level + 1;
-			setLevel(level, player, ball);
-			drawLevel(ball, player, level->blocks);
+			//setLevel(level, player, ball);
+			drawLevel(*ball, *player, level->blocks);
 			*menu = 0;
 		}
 		break;
@@ -164,19 +165,19 @@ void menuInput(char input, char* selection, char* menu, struct Level* level, str
 		moveCursor(input, selection, 1, 1);
 
 		//Select entry
-		if(input & 0x07 == 0x02 && *selection == 1){
+		if(input == 0x02 && *selection == 1){
 			*menu = 1;
-			createMenu(menu, selection);
+			createMenu(*menu, selection);
 		}
 		break;
-	case 5:
+	case 6:
 		// GameWon Menu
 		moveCursor(input, selection, 1, 1);
 
 		//Select entry
-		if(input & 0x07 == 0x02 && *selection == 1){
+		if(input == 0x02 && *selection == 1){
 			*menu = 1;
-			createMenu(menu, selection);
+			createMenu(*menu, selection);
 		}
 		break;
 	}
@@ -186,9 +187,9 @@ void moveCursor(char input, char* selection, char min, char max){
 	gotoxy(8,5+(*selection)*2);
 	printf(" ");
 
-	if((input & 0x07 == 0x01) && (*selection < max)){
+	if((input  == 0x01) && (*selection < max)){
 		(*selection)++;
-	}else if((input & 0x07 == 0x04) && (*selection > min)){
+	}else if((input == 0x04) && (*selection > min)){
 		(*selection)--;
 	}
 

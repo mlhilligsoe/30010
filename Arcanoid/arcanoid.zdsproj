@@ -13,6 +13,8 @@
 <file filter-key="">include\src\printFix.c</file>
 <file filter-key="">include\src\SinLUT.c</file>
 <file filter-key="">include\src\timers.c</file>
+<file filter-key="">include\src\graphics.c</file>
+<file filter-key="">include\src\gamePhysics.c</file>
 </files>
 
 <!-- configuration information -->
