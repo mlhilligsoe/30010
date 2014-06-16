@@ -1,11 +1,10 @@
 #include <eZ8.h>             // special encore constants, macros and flash routines
 #include <sio.h>   
 #include "struct.h"
-void updatePlayerPos(char input, struct Player* player){
 
-}
 
-void updateBallPos(struct Ball* ball){
+<<<<<<< .merge_file_a01768
+updateBallPos(struct Ball* ball){
     
     char old_x = (char) (ball->x >> 16);
     char old_y = (char) (ball->y >> 16);
@@ -18,6 +17,14 @@ void updateBallPos(struct Ball* ball){
     redrawBall(old_x, old_y, new_x, new_y);
     }
     
+=======
+void updatePlayerPos(char input, struct Player* player){
+
+>>>>>>> .merge_file_a03716
+}
+
+void updateBallPos(struct Ball* ball){
+
 }
 
 void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* player){
