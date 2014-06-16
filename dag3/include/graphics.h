@@ -4,4 +4,6 @@
 
 void redrawPlayer(char x.old, char y.old, char x.new, char y.new);
 void redrawBall(char x.old, char y.old, char x.new, char y.new);
-void redrawBlock(struct Block* block);
+void drawBlock(struct Block* block);
+void drawEdges();
+void drawLevel();
