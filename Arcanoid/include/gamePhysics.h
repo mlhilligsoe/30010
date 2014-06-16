@@ -2,19 +2,16 @@
 #include <sio.h>   
 
 #include "struct.h"
-updatePlayerPos(char input, struct Player* player);
 
-updateBallPos(struct Ball* ball);
+#ifndef _GAMEPHYSICS_H_
+#define _GAMEPHYSICS_H_
 
-checkWallCollision(struct Ball* ball, struct Level* level);
+void updatePlayerPos(char input, struct Player* player);
+void updateBallPos(struct Ball* ball);
+void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* player);
+void checkPlayerCollision(struct Ball* ball, struct Player* player);
+void checkBlockCollision(struct Ball* ball, struct Block* blocks);
+void updatePosition(char input, struct Player* player, struct Ball* ball);
+void checkCollision(struct Player* player, struct Ball* ball, struct Level* level);
 
-checkPlayerCollision(struct Ball* ball, struct Player* player);
-
-checkBlockCollosion(struct Ball* ball, struct Level* level);
-
-updatePosition(char input, struct Player* player, struct Ball* ball);
-
-checkCollision(struct Player* player, struct Ball* ball, struct Level* level);
-
-setLevel(struct Player* player, struct Ball* ball, struct Level* level);
-
+#endif /*_GAMEPHYSICS_H_*/

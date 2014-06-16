@@ -69,17 +69,17 @@ void main(){
 			//else {
 
 				// Update positions and redraw ball & player
-				//updatePositions(input, &ball, &player);
+				updatePositions(input, &ball, &player);
 
 				// Test for collisions and redraw level
-				//testForCollisions(&ball, &player, &level);
+				testForCollisions(&ball, &player, &level);
 
 				// Test if player dead or level completed, and reset.
 				//If true, gameLost or gameWon will update ball, player and level before sending the player back to a menu.
 				if(player.lives <= 0)
-					gameLost(&inMenu, &ball, &player, &level);
+					gameLost(&menu, &ball, &player, &level);
 				else if(level.lives <= 0)
-					gameWon(&inMenu, &ball, &player, &level);
+					gameWon(&menu, &ball, &player, &level);
 
 			}*/
 		}

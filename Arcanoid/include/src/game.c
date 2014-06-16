@@ -21,5 +21,12 @@ void gameWon(struct Player* player, struct Level* level, struct Ball* ball, char
 }
 
 void setLevel(struct Player* player, struct Ball* ball, struct Level* level){
+	player->x = 40;
+	player->y = 23;
+
+	ball->x = 40;
+	ball->y = 18;
+	ball->vx = 5000;
+	ball->vy = 5000;
 
 }

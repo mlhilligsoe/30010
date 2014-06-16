@@ -1,18 +1,26 @@
 #include <eZ8.h>             // special encore constants, macros and flash routines
 #include <sio.h>   
 #include "struct.h"
+#include "graphics.h"
+#include "gamephysics.h"
+
 void updatePlayerPos(char input, struct Player* player){
 
 }
 
 void updateBallPos(struct Ball* ball){
-    
-    char old_x = (char) (ball->x >> 16);
-    char old_y = (char) (ball->y >> 16);
+	char old_x;
+	char old_y;
+	char new_x;
+	char new_y;
+
+
+    old_x = (char)(ball->x >> 16);
+    old_y = (char)(ball->y >> 16);
     ball->x = ball->x + ball->vx;
     ball->y = ball->y + ball->vy;
-    char new_x = (char) (ball->x >>16);
-    char new_y = (char) (ball->y >>16);
+    new_x = (char)(ball->x >> 16);
+    new_y = (char)(ball->y >> 16);
     
     if(old_x != new_x || old_y != new_y){
     redrawBall(old_x, old_y, new_x, new_y);
@@ -41,7 +49,7 @@ void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* p
 		// Player Looses a Life,
 		//setLevel();
 		//drawLevel();
-		player.lifes -= 1;
+		player->lifes -= 1;
 	}
 
 }
@@ -61,7 +69,7 @@ void checkPlayerCollision(struct Ball* ball, struct Player* player){
 	}
 }
 
-void checkBlockCollosion(struct Ball* ball, struct Level* level){
+void checkBlockCollision(struct Ball* ball, struct Block* blocks){
 
 }
 
@@ -73,7 +81,7 @@ void updatePosition(char input, struct Player* player, struct Ball* ball){
 void checkCollision(struct Player* player, struct Ball* ball, struct Level* level){
 	checkWallCollision(ball, level, player);
 	checkPlayerCollision(ball, player);
-	checkBlockCollision(ball, &(level->blocks));
+	checkBlockCollision(ball, level->blocks);
 }
 
 
