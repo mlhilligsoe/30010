@@ -7,14 +7,14 @@
 
 void updatePlayerPos(char input, struct Player* player){
 	char old_x;
-	if(input == 0x01){
+	if(input == 0x01 && (player->x < (77 << 16))){//boundries for player
 		old_x = (char)(player->x >> 16);
-		player->x = player->x + (1 << 16);
+		player->x = player->x + (2 << 16); // multiplier for player cursor
 		redrawPlayer(old_x,(char)(player->x >> 16) );
 	}
-	else if (input == 0x04){
+	else if (input == 0x04 && (player->x > (4 << 16))){ //boundries for player
 		old_x = (char)(player->x >> 16);
-		player->x = player->x - (1 << 16);
+		player->x = player->x - (2 << 16); // multiplier for player cursor
 		redrawPlayer(old_x,(char)(player->x >> 16) );
 	}
 	else{
@@ -22,12 +22,14 @@ void updatePlayerPos(char input, struct Player* player){
 	}
 }
 
-void updateBallPos(struct Ball* ball){
+void updateBallPos(struct Ball* ball, struct Player* player){
 	char old_x;
 	char old_y;
 	char new_x;
 	char new_y;
+	char player_x;//Forsøg på fix pga. fejl tegning ved kollision.
 
+	player_x = (char)(player->x >> 16);//Forsøg på fix pga. fejl tegning ved kollision.
     old_x = (char)(ball->x >> 16);
     old_y = (char)(ball->y >> 16);
 	
@@ -48,6 +50,8 @@ change in x:
     
     if(old_x != new_x || old_y != new_y){
     	redrawBall(old_x, old_y, new_x, new_y);
+		redrawPlayer(player_x,player_x); //Forsøg på fix pga. fejl tegning ved kollision.
+
     }
     
 }
@@ -126,7 +130,7 @@ void checkBlockCollision(struct Ball* ball, struct Block* blocks){
 
 void updatePositions(char input, struct Player* player, struct Ball* ball){
 	updatePlayerPos(input, player);
-	updateBallPos(ball);
+	updateBallPos(ball, player);
 }
 
 void testForCollisions(struct Player* player, struct Ball* ball, struct Level* level){

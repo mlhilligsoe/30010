@@ -12,7 +12,7 @@
 /* -NOsdiopt -shortsize:16 */
 /* -stdinc:"C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std;C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog;C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\Z8Encore_F640X" */
 /* -strict */
-/* -usrinc:"C:\Users\Hovedpude\Documents\30010\Arcanoid\include" */
+/* -usrinc:"C:\Users\Hovedpude\Documents\30010\Arcanoid\include;C:\Users\Erik\Documents\30010\Arcanoid\include" */
 /* -NOwatch -cpu:Z8F6403 */
 /* -asmsw:" -cpu:Z8F6403 -define:_Z8F6403=1 -define:_Z8ENCORE_640_FAMILY=1 -define:_Z8ENCORE_F640X=1 -define:_MODEL_LARGE=1 -include:C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std;C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog;C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\Z8Encore_F640X -revaa" */
 
@@ -62,7 +62,7 @@ define _zsl_g_clock_xdefine = 18432000
 /* Set frequency to 18432000 Hz */
 define __user_frequency = 18432000
 
-"C:\Users\Hovedpude\Documents\30010\Arcanoid\arcanoid"= \
+"C:\Users\Erik\Documents\30010\Arcanoid\arcanoid"= \
  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\startupL.obj, \
  .\zsldevinit.obj, \
  .\main.obj, \
@@ -73,9 +73,9 @@ define __user_frequency = 18432000
  .\menu.obj, \
  .\printFix.obj, \
  .\SinLUT.obj, \
- .\timers.obj, \
  .\graphics.obj, \
  .\gamePhysics.obj, \
+ .\timer.obj, \
  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\crtrevaaLDD.lib, \
  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\fpdumyL.obj, \
  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\zslLYD.lib

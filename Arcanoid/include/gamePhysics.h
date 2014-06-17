@@ -7,7 +7,7 @@
 #define _GAMEPHYSICS_H_
 
 void updatePlayerPos(char input, struct Player* player);
-void updateBallPos(struct Ball* ball);
+void updateBallPos(struct Ball* ball, struct Player* player);
 void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* player);
 void checkPlayerCollision(struct Ball* ball, struct Player* player);
 void checkBlockCollision(struct Ball* ball, struct Block* blocks);
