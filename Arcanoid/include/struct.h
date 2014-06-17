@@ -9,13 +9,20 @@ long x,y;
 
 void initVector(struct TVector *v, long a, long b);
 
-
+/*
 struct Ball{
 long x;
 long y;
 long vx;
 long vy;
 };
+*/
+struct Ball{
+ long x;
+ long y;
+ int speed;
+ int angle;
+}
 
 struct Player{
 long x;

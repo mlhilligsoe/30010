@@ -30,9 +30,18 @@ void updateBallPos(struct Ball* ball){
 
     old_x = (char)(ball->x >> 16);
     old_y = (char)(ball->y >> 16);
+	
+change in x:
+			cos(angle)*speed
+ ball->x = ball->x + (long)(cos(ball->angle))*(long)(ball->speed);
+	change in y:
+			sin(angle)*speed
+ ball->y = ball->y + (long)(sin(ball->angle))*(long)(ball->speed);
 
-    ball->x = ball->x + ball->vx;
-    ball->y = ball->y + ball->vy;
+
+//    ball->x = ball->x + ball->vx; old way - not using speed/angle
+//    ball->y = ball->y + ball->vy; old way - not using speed/angle
+
     
 	new_x = (char)(ball->x >> 16);
     new_y = (char)(ball->y >> 16);
@@ -47,18 +56,21 @@ void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* p
 
 	// Check for Left Wall collisions
 	if( ball->x  < (2 << 16) + 16383){
-		ball->vx = -ball->vx;
-		//drawEdges();
+		//ball->vx = -ball->vx;
+		ball->angle = 256 - ball->angle;
+				//drawEdges();
 	}
 	// Check for Right Wall collisions
 	else if ( ball->x > (79 << 16) - 16383 ){
-		ball->vx = -ball->vx;
+		//ball->vx = -ball->vx;
+		ball->angle = 256 - ball->angle;
 		//drawEdges();
 	}
 
 	// Check for Top Wall collisions
 	if( ball->y < (3 << 16) + 16383 ){
-		ball->vy = -ball->vy;
+		//ball->vy = -ball->vy;
+		ball->angle = - ball->angle;
 		//drawEdges();
 	}
 	else if ( (char)(ball->y >> 16) > 23 ){
@@ -75,10 +87,13 @@ void checkPlayerCollision(struct Ball* ball, struct Player* player){
 char check = 0;
 	if(ball->y > (23 << 16)-16383) {
 		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) - 1){
-				ball->vy = -ball->vy;
+				//ball->vy = -ball->vy;
+			ball->angle = - ball->angle;
 				check =1;
-			if(ball->vx >=0){
-				ball->vx =-ball->vx;
+			if((ball->angle % 512) >=384){
+				//ball->vx =-ball->vx;
+				ball->angle = - ball->angle;
+
 				}
 			}
 		if( (ball->x >> 16) >= (player->x >> 16) - 1 && (ball->x >> 16) < (player->x >> 16) ){
