@@ -15,6 +15,7 @@
 <file filter-key="">include\src\timers.c</file>
 <file filter-key="">include\src\graphics.c</file>
 <file filter-key="">include\src\gamePhysics.c</file>
+<file filter-key="">include\src\level.c</file>
 </files>
 
 <!-- configuration information -->

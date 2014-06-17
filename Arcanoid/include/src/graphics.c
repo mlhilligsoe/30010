@@ -5,6 +5,7 @@
 #include "ansi.h"
 
 void drawTopBar(struct Player player){
+	fgcolor(8);
 
 	gotoxy(1,1);
 	printf("Lifes: %d", player.lifes);
@@ -16,6 +17,7 @@ void drawTopBar(struct Player player){
 
 void drawEdges(){
 	int i;
+	fgcolor(8);
 
 	gotoxy(0,2);
 		printf("%c",218);
@@ -39,19 +41,22 @@ void drawLevel(struct Ball ball, struct Player player, struct Block blocks[]){
 	clrscr();
 	drawEdges();
 
-	for(i=0;i<(sizeof(blocks)/sizeof(blocks[0]));i++){	
+	for(i=0;i<64;i++){	
 		drawBlock(blocks[i]); // prints blocks
-		}
+	}
 
 	redrawPlayer((char)(player.x>>16),(char)(player.x>>16)); // prints player 
 
 	redrawBall((char)(ball.x>>16),(char)(ball.y>>16),(char)(ball.x>>16),(char)(ball.y>>16));  // prints ball 
 	drawTopBar(player);
+
 }
 
 
 
 void redrawPlayer(char x_old, char x_new){
+	fgcolor(8);
+
 	//erase player bar
 	gotoxy(x_old-2, 23);
 	printf("     ");
@@ -62,21 +67,20 @@ void redrawPlayer(char x_old, char x_new){
 }
 
 void redrawBall(char x_old, char y_old, char x_new, char y_new){
+	fgcolor(8);
+
 	gotoxy(x_old, y_old);
 	printf(" ");
 	gotoxy(x_new, y_new);
 	printf("o");
-	gotoxy(0,0);
+	gotoxy(0,0);	
 }
 
 // draws block - color depends on no. of lives.
 void drawBlock(struct Block block){
-gotoxy(block.x, block.y);
-	if(block.lifes == 0){
-		fgcolor(0);
-		printf("   ");
-		}
-	else if(block.lifes == 1){
+	gotoxy(block.x, block.y);
+
+	if(block.lifes == 1){
 		fgcolor(1);
 		printf("###");
 	}
@@ -88,12 +92,11 @@ gotoxy(block.x, block.y);
 		fgcolor(2);
 		printf("###");
 	}
-	else {
+	else if( block.lifes == 4){
 		fgcolor(4);
 		printf("###");
-		
 	}
-	fgcolor(0);
+
 	gotoxy(0,0);
 }
 

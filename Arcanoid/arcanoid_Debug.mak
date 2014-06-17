@@ -66,6 +66,8 @@ clean:
             del C:\Users\Hovedpude\Documents\30010\Arcanoid\graphics.obj
 	@if exist C:\Users\Hovedpude\Documents\30010\Arcanoid\gamePhysics.obj  \
             del C:\Users\Hovedpude\Documents\30010\Arcanoid\gamePhysics.obj
+	@if exist C:\Users\Hovedpude\Documents\30010\Arcanoid\level.obj  \
+            del C:\Users\Hovedpude\Documents\30010\Arcanoid\level.obj
 
 rebuildall: clean Debug
 
@@ -85,7 +87,8 @@ OBJS =  \
             C:\Users\Hovedpude\Documents\30010\Arcanoid\SinLUT.obj  \
             C:\Users\Hovedpude\Documents\30010\Arcanoid\timers.obj  \
             C:\Users\Hovedpude\Documents\30010\Arcanoid\graphics.obj  \
-            C:\Users\Hovedpude\Documents\30010\Arcanoid\gamePhysics.obj
+            C:\Users\Hovedpude\Documents\30010\Arcanoid\gamePhysics.obj  \
+            C:\Users\Hovedpude\Documents\30010\Arcanoid\level.obj
 
 arcanoid: $(OBJS)
 	 $(LINK)  @C:\Users\Hovedpude\Documents\30010\Arcanoid\arcanoid_Debug.linkcmd
@@ -141,7 +144,21 @@ C:\Users\Hovedpude\Documents\30010\Arcanoid\ansi.obj :  \
 
 C:\Users\Hovedpude\Documents\30010\Arcanoid\game.obj :  \
             C:\Users\Hovedpude\Documents\30010\Arcanoid\include\src\game.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\dmadefs.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\ez8.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\gpio.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
+            C:\Users\HOVEDP~1\DOCUME~1\30010\Arcanoid\include\ansi.h  \
             C:\Users\HOVEDP~1\DOCUME~1\30010\Arcanoid\include\game.h  \
+            C:\Users\HOVEDP~1\DOCUME~1\30010\Arcanoid\include\level.h  \
             C:\Users\HOVEDP~1\DOCUME~1\30010\Arcanoid\include\menu.h  \
             C:\Users\HOVEDP~1\DOCUME~1\30010\Arcanoid\include\struct.h
 	 $(CC)  $(CFLAGS) C:\Users\Hovedpude\Documents\30010\Arcanoid\include\src\game.c
@@ -297,4 +314,22 @@ C:\Users\Hovedpude\Documents\30010\Arcanoid\gamePhysics.obj :  \
             C:\Users\HOVEDP~1\DOCUME~1\30010\Arcanoid\include\graphics.h  \
             C:\Users\HOVEDP~1\DOCUME~1\30010\Arcanoid\include\struct.h
 	 $(CC)  $(CFLAGS) C:\Users\Hovedpude\Documents\30010\Arcanoid\include\src\gamePhysics.c
+
+C:\Users\Hovedpude\Documents\30010\Arcanoid\level.obj :  \
+            C:\Users\Hovedpude\Documents\30010\Arcanoid\include\src\level.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\dmadefs.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\ez8.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\gpio.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
+            C:\Users\HOVEDP~1\DOCUME~1\30010\Arcanoid\include\level.h  \
+            C:\Users\HOVEDP~1\DOCUME~1\30010\Arcanoid\include\struct.h
+	 $(CC)  $(CFLAGS) C:\Users\Hovedpude\Documents\30010\Arcanoid\include\src\level.c
 
