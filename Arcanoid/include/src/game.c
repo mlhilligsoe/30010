@@ -25,11 +25,12 @@ void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	player->y = 23 << 16;
 	player->lifes = 3;
 	player->points = 0;
+	level->lifes = 1;
 
 	ball->x = 40 << 16;
 	ball->y = 18 << 16;
-	ball->vx = 50;
-	ball->vy = -100;
+	ball->vx = 5000;
+	ball->vy = -5000;
 
 }
 
@@ -39,7 +40,7 @@ void resetLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	
 	ball->x = 40 << 16;
 	ball->y = 18 << 16;
-	ball->vx = 50;
-	ball->vy = -100;
+	ball->vx = 5000;
+	ball->vy = -5000;
 	
 	}
