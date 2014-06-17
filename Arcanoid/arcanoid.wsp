@@ -5,8 +5,8 @@ ptn_Child3=Frames
 
 [WorkState_v1_1.DockState]
 Bars=14
-ScreenCX=1600
-ScreenCY=900
+ScreenCX=1366
+ScreenCY=768
 ptn_Child1=Bar-0
 ptn_Child10=Bar-9
 ptn_Child11=Bar-10
@@ -92,7 +92,7 @@ MRUFloatCX=0
 MRUFloatCY=0
 MRUFloatStyle=8196
 MRUFloatXPos=-2147483648
-MRUFloatYPos=0
+MRUFloatYPos=6822976
 MRUHorzDockCX=192
 MRUHorzDockCY=30
 MRUVertDockCX=0
@@ -327,16 +327,22 @@ MDIChild=False
 MRUDockBottomPos=220
 MRUDockID=0
 MRUDockLeftPos=1
-MRUDockRightPos=1600
+MRUDockRightPos=1366
 MRUDockTopPos=5
 MRUDockingState=0
 MRUFloatCX=300
 MRUFloatCY=180
 MRUFloatStyle=4
 MRUFloatXPos=-2147483648
+<<<<<<< HEAD
 MRUFloatYPos=4217936
 MRUHorzDockCX=1599
 MRUHorzDockCY=215
+=======
+MRUFloatYPos=0
+MRUHorzDockCX=1365
+MRUHorzDockCY=130
+>>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
 MRUVertDockCX=300
 MRUVertDockCY=180
 PctWidth=1000000
@@ -355,7 +361,11 @@ Docking=True
 DockingStyle=61440
 ExStyle=3889
 MDIChild=False
+<<<<<<< HEAD
 MRUDockBottomPos=466
+=======
+MRUDockBottomPos=461
+>>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
 MRUDockID=0
 MRUDockLeftPos=0
 MRUDockRightPos=238
@@ -365,11 +375,16 @@ MRUFloatCX=300
 MRUFloatCY=180
 MRUFloatStyle=4
 MRUFloatXPos=-2147483648
-MRUFloatYPos=6822976
+MRUFloatYPos=0
 MRUHorzDockCX=300
 MRUHorzDockCY=180
+<<<<<<< HEAD
 MRUVertDockCX=238
 MRUVertDockCY=468
+=======
+MRUVertDockCX=180
+MRUVertDockCY=463
+>>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
 PctWidth=1000000
 PrevFloating=False
 ResourceID=0
@@ -389,15 +404,15 @@ MDIChild=False
 MRUDockBottomPos=28
 MRUDockID=59419
 MRUDockLeftPos=-1
-MRUDockRightPos=1599
+MRUDockRightPos=1365
 MRUDockTopPos=-1
 MRUDockingState=0
 MRUFloatCX=441
 MRUFloatCY=29
 MRUFloatStyle=8196
 MRUFloatXPos=-2147483648
-MRUFloatYPos=5136320
-MRUHorzDockCX=1600
+MRUFloatYPos=0
+MRUHorzDockCX=1366
 MRUHorzDockCY=29
 MRUVertDockCX=80
 MRUVertDockCY=551
@@ -431,7 +446,7 @@ MRUFloatCX=0
 MRUFloatCY=0
 MRUFloatStyle=8196
 MRUFloatXPos=-2147483648
-MRUFloatYPos=5825120
+MRUFloatYPos=4665424
 MRUHorzDockCX=296
 MRUHorzDockCY=30
 MRUVertDockCX=0
@@ -466,7 +481,7 @@ MRUFloatCX=0
 MRUFloatCY=0
 MRUFloatStyle=8196
 MRUFloatXPos=-2147483648
-MRUFloatYPos=6822976
+MRUFloatYPos=5313280
 MRUHorzDockCX=488
 MRUHorzDockCY=30
 MRUVertDockCX=0
@@ -498,9 +513,12 @@ ptn_Child13=Document-12
 ptn_Child14=Document-13
 ptn_Child15=Document-14
 ptn_Child16=Document-15
+<<<<<<< HEAD
 ptn_Child17=Document-16
 ptn_Child18=Document-17
 ptn_Child19=Document-18
+=======
+>>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
 ptn_Child2=Document-1
 ptn_Child20=Document-19
 ptn_Child21=Document-20
@@ -540,8 +558,13 @@ ptn_Child1=ViewFrame-0
 DocPathName=include\src\game.c
 DocTemplateIndex=0
 DocumentString=IDE Document
+<<<<<<< HEAD
 IsActiveChildFrame=True
 WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAABDCAAAAAEKBAAAAA
+=======
+IsActiveChildFrame=False
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAABDCAAAAAEKBAAAAA
+>>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
 
 [WorkState_v1_1.Frames.ChildFrames.Document-11]
 ptn_Child1=ViewFrame-0
@@ -577,16 +600,25 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAA
 ptn_Child1=ViewFrame-0
 
 [WorkState_v1_1.Frames.ChildFrames.Document-14.ViewFrame-0]
+<<<<<<< HEAD
 DocPathName=include\src\graphics.c
 DocTemplateIndex=0
 DocumentString=IDE Document
 IsActiveChildFrame=False
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPAAAAAAAAAAAAAAAAAPEAAAAADHBAAAAA
+=======
+DocPathName=include\src\timer.c
+DocTemplateIndex=0
+DocumentString=IDE Document
+IsActiveChildFrame=False
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPAAAAAAAAAAAAAAAACAEAAAAADDBAAAAA
+>>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
 
 [WorkState_v1_1.Frames.ChildFrames.Document-15]
 ptn_Child1=ViewFrame-0
 
 [WorkState_v1_1.Frames.ChildFrames.Document-15.ViewFrame-0]
+<<<<<<< HEAD
 DocPathName=include\gamephysics.h
 DocTemplateIndex=0
 DocumentString=IDE Document
@@ -632,6 +664,13 @@ DocTemplateIndex=0
 DocumentString=IDE Document
 IsActiveChildFrame=False
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPNHAAAAAANHAAAAAANGFAAAAAAPBAAAAA
+=======
+DocPathName=include\src\graphics.c
+DocTemplateIndex=0
+DocumentString=IDE Document
+IsActiveChildFrame=False
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAAPBEAAAAAAFBAAAAA
+>>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
 
 [WorkState_v1_1.Frames.ChildFrames.Document-2]
 ptn_Child1=ViewFrame-0
@@ -642,6 +681,7 @@ DocTemplateIndex=0
 DocumentString=IDE Document
 IsActiveChildFrame=False
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPCDAAAAAACDAAAAAAIDEAAAAAJGBAAAAA
+<<<<<<< HEAD
 
 [WorkState_v1_1.Frames.ChildFrames.Document-20]
 ptn_Child1=ViewFrame-0
@@ -662,6 +702,8 @@ DocTemplateIndex=0
 DocumentString=IDE Document
 IsActiveChildFrame=False
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPAAAAAAAAAAAAAAAAGLEAAAAAMDBAAAAA
+=======
+>>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
 
 [WorkState_v1_1.Frames.ChildFrames.Document-3]
 ptn_Child1=ViewFrame-0
@@ -734,7 +776,11 @@ IsActiveChildFrame=False
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPLEAAAAAALEAAAAAAIBCAAAAALIBAAAAA
 
 [WorkState_v1_1.Frames.MainFrame]
+<<<<<<< HEAD
 Title=arcanoid -- ZDS II - Z8 Encore! Family -- game.c - [game.c]
+=======
+Title=arcanoid -- ZDS II - Z8 Encore! Family -- main - [main]
+>>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
 WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAAADIPPPPAADIPPPPPPPPPPPPPPPPPPPPAAAAAAAAEAAAAAAANGDAAAAAOBCAAAAA
 
 [WorkState_v1_1.ToolBarMgr]

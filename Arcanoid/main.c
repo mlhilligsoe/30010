@@ -4,12 +4,14 @@
 #include "printFix.h"
 //#include "SinLUT.h"
 #include "input.h"
-#include "timers.h"
+#include "timer.h"
 #include "menu.h"
 #include "game.h"
 #include "struct.h"
 #include "gamePhysics.h"
-//#include "display.h"
+//#include ""
+
+
 
 void main(){
 
@@ -34,9 +36,9 @@ void main(){
 	init_uart(_UART0,_DEFFREQ,_DEFBAUD); // set-up UART0 to 57600, 8n1
 
 	// Initialize time and input (µP registers)
-	//initTimer();
+	initTimers();
 	//initInput();
-
+	
 	// Initialize Game Menu
 	createMenu(menu, &selection);
 
@@ -44,12 +46,14 @@ void main(){
 	/* Main Loop	           */
 	/***************************/
 	while( 1 ){
-
+		if(timerFlag ==1)
+		{
+		
 		// Get input
 		inputOld = inputNew;
 		inputNew = getInput();
 		input = inputChange(inputOld, inputNew);
-
+		
 		// If in Menu
 		if(menu > 0){
 
@@ -89,6 +93,7 @@ void main(){
 		else{
 			break;
 		}
-
+		timerFlag =0;
+	} // End of if loop for timerFlag
 	} // End of main while loop
 } // End of main()
