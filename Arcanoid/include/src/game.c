@@ -20,13 +20,26 @@ void gameWon(struct Player* player, struct Level* level, struct Ball* ball, char
 	createMenu(*menu, selection);
 }
 
-void setLevel(struct Player* player, struct Ball* ball, struct Level* level){
-	player->x = 40;
-	player->y = 23;
+void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
+	player->x = 40 << 16;
+	player->y = 23 << 16;
+	player->lifes = 3;
+	player->points = 0;
 
-	ball->x = 40;
-	ball->y = 18;
-	ball->vx = 5000;
-	ball->vy = 5000;
+	ball->x = 40 << 16;
+	ball->y = 18 << 16;
+	ball->vx = 50;
+	ball->vy = -100;
 
 }
+
+void resetLevel(struct Player* player, struct Ball* ball, struct Level* level){
+	player->x = 40 << 16;
+	player->y = 23 << 16;
+	
+	ball->x = 40 << 16;
+	ball->y = 18 << 16;
+	ball->vx = 50;
+	ball->vy = -100;
+	
+	}

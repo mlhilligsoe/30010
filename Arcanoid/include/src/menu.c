@@ -5,6 +5,7 @@
 #include "struct.h"
 #include "ansi.h"
 #include "graphics.h"
+#include "game.h"
 
 void createMenu(char menu, char* selection){
 	int i;
@@ -108,8 +109,8 @@ void menuInput(char input, char* selection, char* menu, struct Level* level, str
 
 		//Select entry
 		if(input == 0x02 && *selection == 0){
-			player->level = *selection;
-			//setLevel(level, player, ball);
+			player->level = 0;
+			initLevel(player, ball, level);
 			drawLevel(*ball, *player, level->blocks);
 			*menu = 0;
 		}
@@ -125,7 +126,7 @@ void menuInput(char input, char* selection, char* menu, struct Level* level, str
 		//Select entry
 		if(input == 0x02 && *selection < 5){
 			player->level = *selection;
-			//setLevel(level, player, ball);
+			initLevel(player, ball, level);
 			drawLevel(*ball, *player, level->blocks);
 			*menu = 0;
 		}
@@ -155,7 +156,7 @@ void menuInput(char input, char* selection, char* menu, struct Level* level, str
 		//Select entry
 		if(input == 0x02 && *selection == 1){
 			player->level = player->level + 1;
-			//setLevel(level, player, ball);
+			initLevel(player, ball, level);
 			drawLevel(*ball, *player, level->blocks);
 			*menu = 0;
 		}

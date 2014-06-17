@@ -8,6 +8,7 @@
 #include "menu.h"
 #include "game.h"
 #include "struct.h"
+#include "gamePhysics.h"
 //#include "display.h"
 
 void main(){
@@ -65,23 +66,23 @@ void main(){
 				pause(&menu, &selection);
 			}
 
-			/*// Else continue game
-			//else {
+			
+			else {
 
 				// Update positions and redraw ball & player
-				updatePositions(input, &ball, &player);
+				updatePositions(input, &player, &ball);
 
 				// Test for collisions and redraw level
-				testForCollisions(&ball, &player, &level);
+				testForCollisions(&player, &ball, &level);
 
 				// Test if player dead or level completed, and reset.
 				//If true, gameLost or gameWon will update ball, player and level before sending the player back to a menu.
-				if(player.lives <= 0)
-					gameLost(&menu, &ball, &player, &level);
-				else if(level.lives <= 0)
-					gameWon(&menu, &ball, &player, &level);
+				if(player.lifes <= 0)
+					gameLost(&player, &level, &menu, &selection);
+				else if(level.lifes <= 0)
+					gameWon(&player, &level, &ball, &menu, &selection);
 
-			}*/
+			}
 		}
 
 		// If menu < 0, something went wrong.

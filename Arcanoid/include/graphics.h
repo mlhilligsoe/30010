@@ -7,7 +7,8 @@
 #define _GRAPHICS_H_
 
 
-void redrawPlayer(char x_old, char y_old, char x_new, char y_new);
+void drawTopBar(struct Player player);
+void redrawPlayer(char x_old, char x_new);
 void redrawBall(char x_old, char y_old, char x_new, char y_new);
 void drawBlock(struct Block block);
 void drawEdges();

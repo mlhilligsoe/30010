@@ -4,27 +4,38 @@
 #include "graphics.h"
 #include "ansi.h"
 
+void drawTopBar(struct Player player){
+
+	gotoxy(1,1);
+	printf("Lifes: %d", player.lifes);
+	gotoxy(35,1);
+	printf("Level: %d", player.level+1);
+	gotoxy(66,1);
+	printf("Points: %05d", player.points);
+}
+
 void drawEdges(){
 	int i;
 
-	gotoxy(0,1);
+	gotoxy(0,2);
 		printf("%c",218);
-	for(i=0;i<77;i++){	// prints top 
+	for(i=0;i<78;i++){	// prints top 
 		printf("%c",196);
 		}
 	printf("%c",191);
 
-	for(i=2;i<24;i++){
+	for(i=3;i<24;i++){
 		gotoxy(0,i);
 			printf("%c",179); // prints left edge
-		gotoxy(79,i);
+		gotoxy(80,i);
 			printf("%c",179); // prints right edge
 		}
 }
 
 void drawLevel(struct Ball ball, struct Player player, struct Block blocks[]){
+	
 	int i;
-
+	printf("ESC[?25l");
 	clrscr();
 	drawEdges();
 
@@ -32,30 +43,30 @@ void drawLevel(struct Ball ball, struct Player player, struct Block blocks[]){
 		drawBlock(blocks[i]); // prints blocks
 		}
 
-//	redrawPlayer(player.x,player.y,player.x,player.y); // prints player 
-		redrawPlayer(10,23,10,23); // prints player 
+	redrawPlayer((char)(player.x>>16),(char)(player.x>>16)); // prints player 
 
-//redrawBall(ball.x,ball.y,ball.x,ball.y);  // prints ball 
-redrawBall(10,10,10,10);  // prints ball 
+	redrawBall((char)(ball.x>>16),(char)(ball.y>>16),(char)(ball.x>>16),(char)(ball.y>>16));  // prints ball 
+	drawTopBar(player);
 }
 
 
 
-void redrawPlayer(char x_old, char y_old, char x_new, char y_new){
+void redrawPlayer(char x_old, char x_new){
 	//erase player bar
-	gotoxy(x_old, y_old);
+	gotoxy(x_old-2, 23);
 	printf("     ");
 	// redraw player bar
-	gotoxy(x_new, y_new);
+	gotoxy(x_new-2, 23);
 	printf("<===>");
-
+	gotoxy(0,0);
 }
 
 void redrawBall(char x_old, char y_old, char x_new, char y_new){
-gotoxy(x_old, y_old);
-printf(" ");
-gotoxy(x_new, y_new);
-printf("O");
+	gotoxy(x_old, y_old);
+	printf(" ");
+	gotoxy(x_new, y_new);
+	printf("o");
+	gotoxy(0,0);
 }
 
 // draws block - color depends on no. of lives.
@@ -83,6 +94,7 @@ gotoxy(block.x, block.y);
 		
 	}
 	fgcolor(0);
+	gotoxy(0,0);
 }
 
 

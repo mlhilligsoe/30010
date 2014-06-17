@@ -3,9 +3,23 @@
 #include "struct.h"
 #include "graphics.h"
 #include "gamephysics.h"
+#include "game.h"
 
 void updatePlayerPos(char input, struct Player* player){
-
+	char old_x;
+	if(input == 0x01){
+		old_x = (char)(player->x >> 16);
+		player->x = player->x + (1 << 16);
+		redrawPlayer(old_x,(char)(player->x >> 16) );
+	}
+	else if (input == 0x04){
+		old_x = (char)(player->x >> 16);
+		player->x = player->x - (1 << 16);
+		redrawPlayer(old_x,(char)(player->x >> 16) );
+	}
+	else{
+	;
+	}
 }
 
 void updateBallPos(struct Ball* ball){
@@ -14,71 +28,93 @@ void updateBallPos(struct Ball* ball){
 	char new_x;
 	char new_y;
 
-
     old_x = (char)(ball->x >> 16);
     old_y = (char)(ball->y >> 16);
+
     ball->x = ball->x + ball->vx;
     ball->y = ball->y + ball->vy;
-    new_x = (char)(ball->x >> 16);
+    
+	new_x = (char)(ball->x >> 16);
     new_y = (char)(ball->y >> 16);
     
     if(old_x != new_x || old_y != new_y){
-    redrawBall(old_x, old_y, new_x, new_y);
+    	redrawBall(old_x, old_y, new_x, new_y);
     }
     
 }
 
 void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* player){
 
-	// Check for X-axis collisions
-	if(ball->x < 1){
+	// Check for Left Wall collisions
+	if( ball->x  < (2 << 16) + 16383){
 		ball->vx = -ball->vx;
-		drawEdges();
+		//drawEdges();
 	}
-	else if (ball->x > 78){
+	// Check for Right Wall collisions
+	else if ( ball->x > (79 << 16) - 16383 ){
 		ball->vx = -ball->vx;
-		drawEdges();
+		//drawEdges();
 	}
 
-	// Check for X-axis collisions
-	if(ball->y < 2){
+	// Check for Top Wall collisions
+	if( ball->y < (3 << 16) + 16383 ){
 		ball->vy = -ball->vy;
-		drawEdges();
+		//drawEdges();
 	}
-	else if (ball->y > 24){
+	else if ( (char)(ball->y >> 16) > 23 ){
 		// Player Looses a Life,
-		//setLevel();
-		//drawLevel();
-		player->lifes -= 1;
+		resetLevel(player, ball, level);
+		drawLevel(*ball, *player, level->blocks);
+		player->lifes = player->lifes - 1;
+		drawTopBar(*player);
 	}
 
 }
 
 void checkPlayerCollision(struct Ball* ball, struct Player* player){
-	if(ball->y > 23){
-		if(ball->x >= player->x - 2 || ball->x < player->x - 1)
-			ball->vy = -ball->vy;
-		if(ball->x >= player->x - 1 || ball->x < player->x )
+char check = 0;
+	if(ball->y > (23 << 16)-16383) {
+		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) - 1){
 				ball->vy = -ball->vy;
-		if(ball->x >= player->x || ball->x < player->x + 1)
+				check =1;
+			if(ball->vx >=0){
+				ball->vx =-ball->vx;
+				}
+			}
+		if( (ball->x >> 16) >= (player->x >> 16) - 1 && (ball->x >> 16) < (player->x >> 16) ){
 				ball->vy = -ball->vy;
-		if(ball->x >= player->x + 1 || ball->x < player->x + 2)
+				check =1;}
+		if( (ball->x >> 16) >= (player->x >> 16) && (ball->x >> 16) < (player->x >> 16) + 1){
 				ball->vy = -ball->vy;
-		if(ball->x >= player->x + 2 || ball->x < player->x + 3)
+				check =1;}
+		if( (ball->x >> 16) >= (player->x >> 16) + 1 && (ball->x >> 16) < (player->x >> 16) + 2){
 				ball->vy = -ball->vy;
+				check =1;}
+		if( (ball->x >> 16) >= (player->x >> 16) + 2 && (ball->x >> 16) < (player->x >> 16) + 3){
+				ball->vy = -ball->vy;
+				check =1;
+				if(ball->vx <=0){
+				ball->vx =-ball->vx;
+				}}
+		if( check == 1){
+				ball->y = (23 << 16) - 16383;
+				player->points +=1;
+				drawTopBar(*player);
+				check = 0 ; }
+		
 	}
 }
 
 void checkBlockCollision(struct Ball* ball, struct Block* blocks){
-
+		//drawTopBar(*player);
 }
 
-void updatePosition(char input, struct Player* player, struct Ball* ball){
+void updatePositions(char input, struct Player* player, struct Ball* ball){
 	updatePlayerPos(input, player);
 	updateBallPos(ball);
 }
 
-void checkCollision(struct Player* player, struct Ball* ball, struct Level* level){
+void testForCollisions(struct Player* player, struct Ball* ball, struct Level* level){
 	checkWallCollision(ball, level, player);
 	checkPlayerCollision(ball, player);
 	checkBlockCollision(ball, level->blocks);
