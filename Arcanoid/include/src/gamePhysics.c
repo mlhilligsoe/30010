@@ -110,14 +110,23 @@ void checkBlockCollision(struct Ball* ball, struct Level* level, struct Player* 
 			hit = 0;
 
 			// Check if ball hits from either side
-			if( (ball->x >  (long)blocks[i].x << 16) - 16383 && (ball->y >  (long)blocks[i].y << 16) && (ball->x < ((long)blocks[i].x + 3) << 16) + 16383 && (ball->y <  ((long)blocks[i].y + 1) << 16) ){
+			if(    (	ball->x > ( (long)blocks[i].x << 16 ) - 16383 			) 
+				&& (	ball->y > ( (long)blocks[i].y << 16 )					) 
+				&& (	ball->x < ( ((long)blocks[i].x + 3) << 16 ) + 16383		) 
+				&& (	ball->y < ( ((long)blocks[i].y + 1) << 16 )				) 
+			){
+				
 				ball->vx = -ball->vx;
 				ball->x += ball->vx;
 				hit = 1;
 			}
 			
 			// Check if ball hits from top or bottom
-			if( (ball->x >  (long)blocks[i].x << 16) && (ball->y >  (long)blocks[i].y << 16) - 16383 && (ball->x < ((long)blocks[i].x + 3) << 16) && (ball->y <  ((long)blocks[i].y + 1) << 16) + 16383 ){
+			if(    (	ball->x > ( (long)blocks[i].x << 16 )					) 
+				&& (	ball->y > ( (long)blocks[i].y << 16 ) - 16383 			) 
+				&& (	ball->x < ( ((long)blocks[i].x + 3) << 16 ) 			)
+				&& (	ball->y < ( ((long)blocks[i].y + 1) << 16 ) + 16383 	)
+			){
 				ball->vy = -ball->vy;
 				ball->y += ball->vy;
 				hit = 1;
