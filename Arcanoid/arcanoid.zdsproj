@@ -14,7 +14,11 @@
 <file filter-key="">include\src\SinLUT.c</file>
 <file filter-key="">include\src\graphics.c</file>
 <file filter-key="">include\src\gamePhysics.c</file>
+<<<<<<< HEAD
+<file filter-key="">include\src\level.c</file>
+=======
 <file filter-key="">include\src\timer.c</file>
+>>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
 </files>
 
 <!-- configuration information -->
