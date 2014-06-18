@@ -102,23 +102,35 @@ char check = 0;
 
 void checkBlockCollision(struct Ball* ball, struct Level* level, struct Player* player){
 	int i;	
+	char hit = 0;
 	struct Block* blocks = level->blocks;	
 
 	for(i = 0; i < 64; i++){
 		if(blocks[i].lifes > 0){
-			if( (ball->x >  (long)blocks[i].x << 16) && (ball->y >  (long)blocks[i].y << 16) && (ball->x < ((long)blocks[i].x + 3) << 16) && (ball->y <  ((long)blocks[i].y + 1) << 16) ){
+			// Check if ball hits from either side
+			if( (ball->x >  (long)blocks[i].x << 16) - 16383 && (ball->y >  (long)blocks[i].y << 16) && (ball->x < ((long)blocks[i].x + 3) << 16) + 16383 && (ball->y <  ((long)blocks[i].y + 1) << 16) ){
+				ball->vx = -ball->vx;
+				ball->x += ball->vx;
+				hit = 1;
+			}
+			
+			// Check if ball hits from top or bottom
+			if( (ball->x >  (long)blocks[i].x << 16) && (ball->y >  (long)blocks[i].y << 16) - 16383 && (ball->x < ((long)blocks[i].x + 3) << 16) && (ball->y <  ((long)blocks[i].y + 1) << 16) + 16383 ){
+				ball->vy = -ball->vy;
+				ball->y += ball->vy;
+				hit = 1;
+			}
+
+			if( hit == 1){
 				blocks[i].lifes--;
 				drawBlock(blocks[i]);
 				level->lifes--;
 				
-				ball->vx = -ball->vx;
-				ball->vy = -ball->vy;
-
 				player->points++;
 				drawTopBar(*player);
 			}
 		}
-	}
+	} // end of for  loop
 }
 
 void updatePositions(char input, struct Player* player, struct Ball* ball){
