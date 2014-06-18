@@ -6,6 +6,8 @@
 #include "ansi.h"
 #include <string.h>
 
+char updateLED = 0;
+
 void LEDinit(){
 PEDD = 0x00;
 PGDD = 0x00; //data direction
