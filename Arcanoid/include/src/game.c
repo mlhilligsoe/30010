@@ -32,7 +32,7 @@ void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 
 	level->lifes = 0;
 	for(i = 0; i < 64; i++){
-		level->blocks[i] = LEVEL1BLOCKS[i];
+		level->blocks[i] = LEVELBLOCKS[player->level][i];
 		
 		if(level->blocks[i].lifes > 0){
 			level->lifes += level->blocks[i].lifes;
@@ -46,8 +46,8 @@ void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	ball->vx = 50;
 	ball->vy = -100;
 	
-	ball->vx = -10000;
-	ball->vy = -5000;
+	ball->vx = -600;
+	ball->vy = -1000;
 
 }
 
@@ -57,7 +57,7 @@ void resetLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	
 	ball->x = 40 << 16;
 	ball->y = 18 << 16;
-	ball->vx = -10000;
-	ball->vy = -5000;
+	ball->vx = -500;
+	ball->vy = -1000;
 	
 	}
