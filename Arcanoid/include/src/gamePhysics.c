@@ -102,11 +102,13 @@ char check = 0;
 
 void checkBlockCollision(struct Ball* ball, struct Level* level, struct Player* player){
 	int i;	
-	char hit = 0;
+	char hit;
 	struct Block* blocks = level->blocks;	
 
 	for(i = 0; i < 64; i++){
 		if(blocks[i].lifes > 0){
+			hit = 0;
+
 			// Check if ball hits from either side
 			if( (ball->x >  (long)blocks[i].x << 16) - 16383 && (ball->y >  (long)blocks[i].y << 16) && (ball->x < ((long)blocks[i].x + 3) << 16) + 16383 && (ball->y <  ((long)blocks[i].y + 1) << 16) ){
 				ball->vx = -ball->vx;
@@ -129,6 +131,7 @@ void checkBlockCollision(struct Ball* ball, struct Level* level, struct Player* 
 				player->points++;
 				drawTopBar(*player);
 			}
+
 		}
 	} // end of for  loop
 }
