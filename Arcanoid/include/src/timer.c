@@ -18,8 +18,8 @@ T0CTL &= 0x7F; //Timer disable
 T0CTL = 0x39; // timer setup Continious mode and prescale 128
 T0H = 0x00; // skriver start betingelse 0000
 T0L = 0x00;
-T0RH = 0x00; // Reload værdi = 1440 = 0x05A0 dvs. 1/100 s
-T0RL = 0xE0;
+T0RH = 0x05; // Reload værdi = 1440 = 0x05A0 dvs. 1/100 s
+T0RL = 0xA0;
 SET_VECTOR(TIMER0, timer0int); //ved interrupt ved timer0, køres interrupt funktionen defineret ovenfor.
 IRQ0ENH |= 0x20; // enable Timer0 interrupt, and set nominal priority
 IRQ0ENL &= 0xDF; // 

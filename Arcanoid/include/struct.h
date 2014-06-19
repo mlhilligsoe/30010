@@ -15,7 +15,7 @@ struct Ball{
  long y;
  long speed;
  int angle;
-}
+};
 
 struct Player{
 long x;

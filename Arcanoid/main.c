@@ -11,8 +11,6 @@
 #include "gamePhysics.h"
 //#include ""
 
-
-
 void main(){
 
 	/***************************/
@@ -30,14 +28,14 @@ void main(){
 	struct Level level;
 
 	// Initialize input variables
-	char input = 0, inputOld = 0, inputNew = 0;					// 1:'00000001' for btn1 pressdown; 2:'00000010' for btn2 pressdown; 3:'00000100' for btn3 pressdown;
+	int input = 0, inputOld = 0, inputNew = 0;					// 1:'00000001' for btn1 pressdown; 2:'00000010' for btn2 pressdown; 3:'00000100' for btn3 pressdown;
 
 	// Initialize terminal connection
 	init_uart(_UART0,_DEFFREQ,_DEFBAUD); // set-up UART0 to 57600, 8n1
 
 	// Initialize time and input (µP registers)
 	initTimers();
-	//initInput();
+	initInput();
 	
 	// Initialize Game Menu
 	createMenu(menu, &selection);
@@ -48,7 +46,7 @@ void main(){
 	while( 1 ){
 		if(timerFlag ==1)
 		{
-		
+			
 		// Get input
 		inputOld = inputNew;
 		inputNew = getInput();
@@ -56,10 +54,11 @@ void main(){
 		
 		// If in Menu
 		if(menu > 0){
-
+		gotoxy(5,19);
+		printf("%04d", input & 0x0007);
 			// Apply Menu action if any input is given
-			if(input != 0)
-				menuInput(input, &selection, &menu, &level, &player, &ball);
+			if( (input & 0x0007) != 0)
+				menuInput( (input & 0x0007) , &selection, &menu, &level, &player, &ball);
 
 		}
 

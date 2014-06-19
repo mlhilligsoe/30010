@@ -3,6 +3,7 @@
 #include "struct.h"
 #include "graphics.h"
 #include "ansi.h"
+#include "timer.h"
 
 void drawTopBar(struct Player player){
 	fgcolor(8);
@@ -70,12 +71,13 @@ void redrawPlayer(char x_old, char x_new){
 
 void redrawBall(char x_old, char y_old, char x_new, char y_new){
 	fgcolor(15);
-
 	gotoxy(x_old, y_old);
 	printf(" ");
 	gotoxy(x_new, y_new);
 	printf("%c",184);
 	gotoxy(0,0);	
+
+	
 }
 
 // draws block - color depends on no. of lives.

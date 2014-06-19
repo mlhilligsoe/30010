@@ -45,8 +45,8 @@ void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	ball->y = 18 << 16;
 
 	
-	ball->angle = 400;
-	ball->speed = 3000;
+	ball->angle = -64;
+	ball->speed = 5000;
 
 }
 
@@ -57,7 +57,7 @@ void resetLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	ball->x = 40 << 16;
 	ball->y = 18 << 16;
 	
-	ball->angle = 400;
-	ball->speed = 3000;
+	ball->angle = -64;
+	ball->speed = 5000;
 	
 	}

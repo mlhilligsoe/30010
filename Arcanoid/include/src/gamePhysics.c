@@ -5,19 +5,25 @@
 #include "gamephysics.h"
 #include "game.h"
 #include "ansi.h"
+#include "sinLUT.h"
 
-void updatePlayerPos(char input, struct Player* player){
-	char old_x;
- 	old_x = (char)(player->x >> 16);
+void updatePlayerPos(int input, struct Player* player){
+	char old_x, new_x;
+	int slider = (input >> 5)/13 + 2;
+	old_x = (char)(player->x >> 16);
 
-	if(input == 0x01 && (player->x < (77 << 16))){//boundries for player
-		player->x = player->x + (1 << 16); // multiplier for player cursor
+	if(slider > 3 && slider < 78)
+		player->x = (long)slider << 16;
+	else if(slider <= 3)
+		player->x = 4 << 16;
+	else if( slider >= 78)
+		player->x = 77 << 16;
+	
+   new_x = (char)(player->x >> 16);
+
+	if(new_x != old_x) 
 		redrawPlayer(old_x,(char)(player->x >> 16) );
-	}
-	else if (input == 0x04 && (player->x > (4 << 16))){ //boundries for player
-		player->x = player->x - (1 << 16); // multiplier for player cursor
-		redrawPlayer(old_x,(char)(player->x >> 16) );
-	}
+
 }
 
 void updateBallPos(struct Ball* ball, struct Player* player){
@@ -30,11 +36,9 @@ void updateBallPos(struct Ball* ball, struct Player* player){
     old_y = (char)(ball->y >> 16);
 	
 	//change in x:
-	ball->x = ball->x + (long)(cos(ball->angle))*ball->speed;
+	ball->x = ball->x + (((long)(cos(ball->angle))*ball->speed) >> 14);
 	//change in y:
-	ball->y = ball->y + (long)(sin(ball->angle))*ball->speed;
-
-
+	ball->y = ball->y + (((long)(sin(ball->angle))*ball->speed) >> 14);
   
 	new_x = (char)(ball->x >> 16);
     new_y = (char)(ball->y >> 16);
@@ -63,7 +67,7 @@ void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* p
 		ball->angle = - ball->angle;
 	}
 	
-	else if ( (char)(ball->y >> 16) > 22 ){
+	else if ( ball->y > ((23 << 16) + 16383)  ){
 		// Player Looses a Life,
 		resetLevel(player, ball, level);
 		drawLevel(*ball, *player, level->blocks);
@@ -74,44 +78,55 @@ void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* p
 }
 
 void checkPlayerCollision(struct Ball* ball, struct Player* player){
-char check = 0;
+
 	if(ball->y > (23 << 16)-16383) {
-		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) - 1){
-			
-			if((ball->angle % 512) >=384){ // ball from left
-				ball->angle = -ball->angle * 3;
-			}
-			else { // ball from right
-				ball->angle = -ball->angle * 2;
-			}
 
-				check =1;
+	gotoxy(2,18);
+	printf("Angle In: %04d", ball->angle);
+		
 
-			}
+		// If hit section 1, change direction
+		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) - 1)
+			ball->angle = -ball->angle -2*32;
+		
+		// If hit section 2, change direction
 		if( (ball->x >> 16) >= (player->x >> 16) - 1 && (ball->x >> 16) < (player->x >> 16) ){
-				ball->angle = -ball->angle * 2;
-				check =1;}
+			ball->angle = -ball->angle -2*16;
+		}
+
+		// If hit section 3, change direction
 		if( (ball->x >> 16) >= (player->x >> 16) && (ball->x >> 16) < (player->x >> 16) + 1){
-				ball->angle = -ball->angle;
-				check =1;}
+			ball->angle = -ball->angle;
+		}
+		
+		// If hit section 4, change direction
 		if( (ball->x >> 16) >= (player->x >> 16) + 1 && (ball->x >> 16) < (player->x >> 16) + 2){
-				ball->angle = -ball->angle * 2;
-				check =1;}
+				ball->angle = -ball->angle +2*16;
+		}
+
+		// If hit section 5, change direction
 		if( (ball->x >> 16) >= (player->x >> 16) + 2 && (ball->x >> 16) < (player->x >> 16) + 3){
-			if((ball->angle % 512) >=384){ // ball from left
-				ball->angle = -ball->angle * 3;
-			}
-			else { // ball from right
-				ball->angle = -ball->angle * 2;
-			}
-				check =1;
+			ball->angle = -ball->angle +2*32;
+		}
+
+				ball->angle &= 0x1FF;
+		gotoxy(2,19);
+		printf("Angle Out: %04d", ball->angle);
+		
+		// If hit, move ball a bit up.
+		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) + 3){
+			ball->y = (23 << 16) - 16383;
+					
+			if( ball->angle < 288)
+				ball->angle = 288;
+			else if(ball->angle > 480)
+				ball->angle = 480;
+
+		}
+
 				
-				}
-		if( check == 1){
-				ball->y = (23 << 16) - 16383;
-				player->points +=1;
-				drawTopBar(*player);
-				check = 0 ; }
+	gotoxy(2,20);
+	printf("Angle Out Corrected %04d", ball->angle);
 		
 	}
 }
@@ -159,7 +174,7 @@ void checkBlockCollision(struct Ball* ball, struct Level* level, struct Player* 
 	} // end of for  loop
 }
 
-void updatePositions(char input, struct Player* player, struct Ball* ball){
+void updatePositions(int input, struct Player* player, struct Ball* ball){
 	updatePlayerPos(input, player);
 	updateBallPos(ball, player);
 }
