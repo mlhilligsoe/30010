@@ -45,10 +45,8 @@ void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	ball->y = 18 << 16;
 
 	
-//	ball->vx = -600; old style notation
-//	ball->vy = -1000; old style notation
 	ball->angle = 400;
-	ball->speed = 100;
+	ball->speed = 3000;
 
 }
 
@@ -58,9 +56,8 @@ void resetLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	
 	ball->x = 40 << 16;
 	ball->y = 18 << 16;
-//	ball->vx = -500; old style notation
-//	ball->vy = -1000; old style notation
+	
 	ball->angle = 400;
-	ball->speed = 100;
+	ball->speed = 3000;
 	
 	}
