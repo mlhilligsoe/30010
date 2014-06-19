@@ -29,23 +29,26 @@ void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	player->y = 23 << 16;
 	player->lifes = 3;
 	player->points = 0;
-	level->lifes = 1;
 
-	level->lifes = 1;
+	level->lifes = 0;
+	for(i = 0; i < 64; i++){
+		level->blocks[i] = LEVELBLOCKS[player->level][i];
+		
+		if(level->blocks[i].lifes > 0){
+			level->lifes += level->blocks[i].lifes;
+		}
+
+	}
+
 
 	ball->x = 40 << 16;
 	ball->y = 18 << 16;
-<<<<<<< HEAD
-	ball->vx = 50;
-	ball->vy = -100;
+
 	
-	for(i = 0; i < 64; i++){
-		level->blocks[i] = LEVEL1BLOCKS[i];
-	}
-=======
-	ball->vx = 5000;
-	ball->vy = -5000;
->>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
+//	ball->vx = -600; old style notation
+//	ball->vy = -1000; old style notation
+	ball->angle = 400;
+	ball->speed = 100;
 
 }
 
@@ -55,7 +58,9 @@ void resetLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	
 	ball->x = 40 << 16;
 	ball->y = 18 << 16;
-	ball->vx = 5000;
-	ball->vy = -5000;
+//	ball->vx = -500; old style notation
+//	ball->vy = -1000; old style notation
+	ball->angle = 400;
+	ball->speed = 100;
 	
 	}

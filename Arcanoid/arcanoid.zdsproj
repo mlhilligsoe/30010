@@ -14,11 +14,8 @@
 <file filter-key="">include\src\SinLUT.c</file>
 <file filter-key="">include\src\graphics.c</file>
 <file filter-key="">include\src\gamePhysics.c</file>
-<<<<<<< HEAD
 <file filter-key="">include\src\level.c</file>
-=======
 <file filter-key="">include\src\timer.c</file>
->>>>>>> 0d59b9fa30c72f2a5b3aa1e1ea1693039c5b0b7b
 </files>
 
 <!-- configuration information -->
@@ -86,7 +83,7 @@
 <option name="shortsize" type="integer" change-action="rebuild">16</option>
 <option name="stdinc" type="string" change-action="compile"></option>
 <option name="strict" type="boolean" change-action="compile">true</option>
-<option name="usrinc" type="string" change-action="compile">C:\Users\Hovedpude\Documents\30010\Arcanoid\include;C:\Users\Erik\Documents\30010\Arcanoid\include</option>
+<option name="usrinc" type="string" change-action="compile">C:\Users\erik\Documents\30010\Arcanoid\include</option>
 <option name="watch" type="boolean" change-action="none">false</option>
 </options>
 </tool>
