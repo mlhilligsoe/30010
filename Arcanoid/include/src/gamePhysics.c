@@ -67,7 +67,7 @@ void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* p
 		ball->angle = - ball->angle;
 	}
 	
-	else if ( ball->y > ((23 << 16) + 16383)  ){
+	else if ( ball->y > ((24 << 16) /*- 16383*/)  ){ // Death criterium.. @ 23,75
 		// Player Looses a Life,
 		resetLevel(player, ball, level);
 		drawLevel(*ball, *player, level->blocks);
@@ -81,51 +81,61 @@ void checkPlayerCollision(struct Ball* ball, struct Player* player){
 
 	if(ball->y > (23 << 16)-16383) {
 
-	gotoxy(2,18);
+	gotoxy(2,14);
 	printf("Angle In: %04d", ball->angle);
 		
 
 		// If hit section 1, change direction
-		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) - 1)
+		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) - 1){
 			ball->angle = -ball->angle -2*32;
+			gotoxy(2,12);
+			printf("Section 1 ");}
 		
 		// If hit section 2, change direction
 		if( (ball->x >> 16) >= (player->x >> 16) - 1 && (ball->x >> 16) < (player->x >> 16) ){
 			ball->angle = -ball->angle -2*16;
+			gotoxy(2,12);
+			printf("Section 2 ");
 		}
 
 		// If hit section 3, change direction
 		if( (ball->x >> 16) >= (player->x >> 16) && (ball->x >> 16) < (player->x >> 16) + 1){
 			ball->angle = -ball->angle;
+			gotoxy(2,12);
+			printf("Section 3 ");
 		}
 		
 		// If hit section 4, change direction
 		if( (ball->x >> 16) >= (player->x >> 16) + 1 && (ball->x >> 16) < (player->x >> 16) + 2){
 				ball->angle = -ball->angle +2*16;
+				gotoxy(2,12);
+			printf("Section 4 ");
 		}
 
 		// If hit section 5, change direction
 		if( (ball->x >> 16) >= (player->x >> 16) + 2 && (ball->x >> 16) < (player->x >> 16) + 3){
 			ball->angle = -ball->angle +2*32;
+			gotoxy(2,12);
+			printf("Section 5 ");
 		}
 
 				ball->angle &= 0x1FF;
-		gotoxy(2,19);
+		gotoxy(2,15);
 		printf("Angle Out: %04d", ball->angle);
 		
 		// If hit, move ball a bit up.
 		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) + 3){
 			ball->y = (23 << 16) - 16383;
 					
-			if( ball->angle < 288)
-				ball->angle = 288;
-			else if(ball->angle > 480)
-				ball->angle = 480;
+			if( ball->angle < 288 && ball->angle >128)
+				ball->angle = 288;  // Corrects balls with wrong angle to the left
+			else if(ball->angle > 480 || ball->angle < 128)
+				ball->angle = 480; // Corrects ball with wrong angle to the right.
 
 		}
 
 				
-	gotoxy(2,20);
+	gotoxy(2,16);
 	printf("Angle Out Corrected %04d", ball->angle);
 		
 	}

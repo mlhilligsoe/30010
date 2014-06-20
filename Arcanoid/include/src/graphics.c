@@ -65,7 +65,7 @@ void redrawPlayer(char x_old, char x_new){
 	printf("     ");
 	// redraw player bar
 	gotoxy(x_new-2, 23);
-	printf("%c%c%c%c%c",220,219,219,219,220);
+	printf("%c%c%c%c%c",223,223,223,223,223);
 	gotoxy(0,0);
 }
 
