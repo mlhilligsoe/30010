@@ -25,7 +25,7 @@ int getInput(){
 	// Initialisering af ADC på pin PB7,
 	ADCCTL = 0xB7;
 	// Wait for ADC to finish.
-	for(i = 0; i < 300; i++){
+	for(i = 0; i < 260; i++){
 		;
 	}
 	
@@ -37,7 +37,7 @@ int getInput(){
 	input = 0;
 	input = BTN | (AJOY << 5 );
 
-	return input; // input is 16 bit, the 3 buttons are 0000 0000 0000 0xxx. The slider is xxxx xxxx xx00 0000.
+	return input; // input is 16 bit, the 3 buttons are S000 0000 0000 0xxx. The slider is Sxxx xxxx xxx0 0000.
 }
 
 int inputChange(int inputOld, int inputNew){
