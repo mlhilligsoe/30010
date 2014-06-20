@@ -34,7 +34,7 @@ void main(){
 	int input = 0, inputOld = 0, inputNew = 0;					// 1:'00000001' for btn1 pressdown; 2:'00000010' for btn2 pressdown; 3:'00000100' for btn3 pressdown;
 
 	// Initialize terminal connection
-	init_uart(_UART0,_DEFFREQ,_DEFBAUD); // set-up UART0 to 57600, 8n1
+	init_uart(_UART0,_DEFFREQ,115200); // set-up UART0 to 57600, 8n1
 
 	// Initialize time and input (µP registers)
 	initTimers();
