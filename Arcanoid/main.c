@@ -60,8 +60,6 @@ void main(){
 		
 		// If in Menu
 		if(menu > 0){
-		gotoxy(5,19);
-		printf("%04d", input & 0x0007);
 			// Apply Menu action if any input is given
 			if( (input & 0x0007) != 0)
 				menuInput( (input & 0x0007) , &selection, &menu, &level, &player, &ball);
@@ -70,30 +68,28 @@ void main(){
 
 		// Else if menu == 0, game is running
 		else if( menu == 0){
-			// Test if pausing (red button pressed)
-			if(input & 0x0007 == 0x02) {
+			// Test if player dead or level completed, and reset.
+			//If true, gameLost or gameWon will update ball, player and level before sending the player back to a menu.
+			if(player.lifes <= 0)
+				gameLost(&player, &level, &menu, &selection);
+			else if(level.lifes <= 0)
+				gameWon(&player, &level, &ball, &menu, &selection);	
+		
+			// Test if pausing (red button pressed) or boss key (all buttons pressed)
+			else if(input & 0x0007 == 0x02) {
 				pause(&menu, &selection);
 			}
 			else if(input & 0x0007 == 0x07) {
 				boss(&menu, &selection);
-			}
-
+			}			
 			
+			// Update game
 			else {
-
 				// Update positions and redraw ball & player
 				updatePositions(input, &player, &ball);
 
 				// Test for collisions and redraw level
 				testForCollisions(&player, &ball, &level);
-
-				// Test if player dead or level completed, and reset.
-				//If true, gameLost or gameWon will update ball, player and level before sending the player back to a menu.
-				if(player.lifes <= 0)
-					gameLost(&player, &level, &menu, &selection);
-				else if(level.lifes <= 0)
-					gameWon(&player, &level, &ball, &menu, &selection);
-
 			}
 		}
 
@@ -105,6 +101,7 @@ void main(){
 		timer0Flag = 0;
 	} // End of if loop for timerFlag
 	
+	// Update LED displays
 	if (timer1Flag != 0) {
 		displayTextOnLed(videoBuffer, &LEDText, &column, &columnIndex, &LEDIndex, &runs);
 		timer1Flag = 0;
