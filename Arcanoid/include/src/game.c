@@ -25,7 +25,7 @@ void gameWon(struct Player* player, struct Level* level, struct Ball* ball, char
 void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	int i;	
 
-	player->x = 40 << 16;
+	//player->x = 40 << 16;
 	player->y = 23 << 16;
 	player->lifes = 3;
 	player->points = 0;
@@ -46,7 +46,7 @@ void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 
 	
 	ball->angle = -64;
-	ball->speed = 5000;
+	ball->speed = 10000;
 
 }
 
@@ -58,6 +58,6 @@ void resetLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	ball->y = 18 << 16;
 	
 	ball->angle = -64;
-	ball->speed = 5000;
+	ball->speed = 10000;
 	
 	}
