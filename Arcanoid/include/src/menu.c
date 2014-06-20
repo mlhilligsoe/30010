@@ -52,7 +52,7 @@ void createMenu(char menu, char* selection){
 		break;
 	case 3:
 		// Draw Pause Menu
-		window(5, 3, 35, 7, "Pause", 1);
+		window(5, 3, 35, 9, "Pause", 1);
 		gotoxy(8,5);
 		printf("*");
 		gotoxy(10,5);
@@ -100,7 +100,7 @@ void createMenu(char menu, char* selection){
 		break;
 	case 7:
 		// Draw Boss Menu
-		window(5, 3, 65, 19, "Important Work", 1);
+		window(5, 3, 67, 19, "Important Work", 1);
 		gotoxy(8,5);
 		printf("*  Dear Colleague,");
 		gotoxy(10,6);
@@ -199,11 +199,11 @@ void menuInput(int input, char* selection, char* menu, struct Level* level, stru
 		}
 		break;
 	case 7:
-		// GameWon Menu
-		moveCursor(input, selection, 1, 1);
+		// Boss Menu
+		moveCursor(input, selection, 0, 0);
 
 		//Select entry
-		if(input == 2 && *selection == 1){
+		if(input == 2 && *selection == 0){
 			drawLevel(*ball, *player, level->blocks);
 			*menu = 0;
 		}

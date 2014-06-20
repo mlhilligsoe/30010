@@ -76,10 +76,10 @@ void main(){
 				gameWon(&player, &level, &ball, &menu, &selection);	
 		
 			// Test if pausing (red button pressed) or boss key (all buttons pressed)
-			else if(input & 0x0007 == 0x02) {
+			else if((input & 0x0007) == 4) {
 				pause(&menu, &selection);
 			}
-			else if(input & 0x0007 == 0x07) {
+			else if((input & 0x0007) == 2) {
 				boss(&menu, &selection);
 			}			
 			
