@@ -15,7 +15,7 @@ void initLED() {
 }
 
 void displayTextOnLed(char videoBuffer[][6], char* text, char* cColumn,
-		char* columnIndex, char* LEDIndex, int* runs) {
+		char* columnIndex, char* LEDIndex, int* runs, char scroll) {
 
 	//Udregner hvilken kolonne på samtlige displays der skal opdateres.
 	*cColumn = (*cColumn + 1) % 5;
@@ -27,13 +27,18 @@ void displayTextOnLed(char videoBuffer[][6], char* text, char* cColumn,
 		//Udregner hvornår videoBuffer skal opdateres
 		if (*columnIndex == 0) {
 			*LEDIndex = (*LEDIndex + 1) % strlen(text);
-			LEDsetString(text, videoBuffer, *LEDIndex);
+			if(scroll != 0)
+				LEDsetString(text, videoBuffer, *LEDIndex);
+			else
+				LEDsetString(text, videoBuffer, 0);
 		}
 	}
 	*runs = (*runs + 1) % scrollSpeed;
-
-	LEDupdate(*cColumn, videoBuffer, *columnIndex);
-
+	
+	if(scroll != 0)
+		LEDupdate(*cColumn, videoBuffer, *columnIndex);
+	else
+		LEDupdate(*cColumn, videoBuffer, 0);
 }
 
 void LEDsetString(char text[], char videoBuffer[][6], char index) {

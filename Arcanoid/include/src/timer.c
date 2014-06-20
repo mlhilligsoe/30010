@@ -31,7 +31,7 @@ T0CTL |= 0x80;  // Timer enable
 
 #pragma interrupt
 void timer0int() {
-	timer1Flag = 1;
+	timer0Flag = 1;
 }
 
 
@@ -50,5 +50,5 @@ T1CTL |= 0x80; // Timer enable
 
 #pragma interrupt
 void timer1int() {
-	timer0Flag = 1;
+	timer1Flag = 1;
 }

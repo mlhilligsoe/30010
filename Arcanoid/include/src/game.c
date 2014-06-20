@@ -38,7 +38,7 @@ void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	player->lifes = 3;
 	player->points = 0;
 
-
+	ball->x = 40 << 16;
 	ball->y = 18 << 16;
 	ball->angle = rand()%128 + 320;
 	ball->speed = 8000 + 2000*player->level;
@@ -56,9 +56,8 @@ void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 
 void resetLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	
-
+	ball->x = 40 << 16;
 	ball->y = 18 << 16;
-
 	ball->angle = rand()%128 + 320;
 	ball->speed = 8000 + 2000*player->level;
 	
@@ -68,7 +67,7 @@ void resetLevel(struct Player* player, struct Ball* ball, struct Level* level){
 void nextLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	int i;
 
-
+	ball->x = 40 << 16;
 	ball->y = 18 << 16;
 	ball->angle = rand()%128 + 320;
 	ball->speed = 8000 + 2000*player->level;

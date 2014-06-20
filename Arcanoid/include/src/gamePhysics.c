@@ -107,12 +107,13 @@ void checkPlayerCollision(struct Ball* ball, struct Player* player){
 		
 		// If hit, move ball a bit up.
 		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) + 3){
-			ball->y = (23 << 16) - 16383;
-					
+			
 			if( ball->angle < 288 && ball->angle >128)
 				ball->angle = 288;  // Corrects balls with wrong angle to the left
 			else if(ball->angle > 480 || ball->angle < 128)
 				ball->angle = 480; // Corrects ball with wrong angle to the right.
+
+			updateBallPos(ball, player);
 		}
 	}
 }
@@ -133,7 +134,7 @@ void checkBlockCollision(struct Ball* ball, struct Level* level, struct Player* 
 				&& (	ball->y < ( ((long)blocks[i].y + 1) << 16 )				) 
 			){
 				
-				ball->angle = ball->angle+256;
+				ball->angle = -ball->angle + 256;
 				hit = 1;
 			}
 			
@@ -148,6 +149,8 @@ void checkBlockCollision(struct Ball* ball, struct Level* level, struct Player* 
 			}
 
 			if( hit == 1){
+				updateBallPos(ball, player);
+
 				blocks[i].lifes--;
 				drawBlock(blocks[i]);
 				level->lifes--;

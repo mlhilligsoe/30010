@@ -19,7 +19,7 @@ void main(){
 
 	// Initialize LED variables
 	char videoBuffer[5][6] = {0};	// Initializes a '0' array
-	char* LEDText = "    #DTU-SPACE <<30010 Programmeringsprojekt>> #DTU-SPACE ";
+	char* LEDText = "    Arconoid Group 14 ";
 	char column = 0, columnIndex = 0, LEDIndex = 0;
 	int runs = 0;
 
@@ -42,6 +42,7 @@ void main(){
 	initLED();
 	LEDsetString(LEDText, videoBuffer, 0);
 
+	player.x = (long)((input >> 5)/13 + 2) << 16;
 	
 	// Initialize Game Menu
 	createMenu(menu, &selection);
@@ -57,9 +58,11 @@ void main(){
 		inputOld = inputNew;
 		inputNew = getInput();
 		input = inputChange(inputOld, inputNew);
-		
+	
 		// If in Menu
 		if(menu > 0){
+			sprintf(LEDText, "  Arconoid Group 14  ");
+			
 			// Apply Menu action if any input is given
 			if( (input & 0x0007) != 0)
 				menuInput( (input & 0x0007) , &selection, &menu, &level, &player, &ball);
@@ -68,6 +71,7 @@ void main(){
 
 		// Else if menu == 0, game is running
 		else if( menu == 0){
+			sprintf(LEDText, "%04d",player.points);
 			// Test if player dead or level completed, and reset.
 			//If true, gameLost or gameWon will update ball, player and level before sending the player back to a menu.
 			if(player.lifes <= 0)
@@ -103,7 +107,7 @@ void main(){
 	
 	// Update LED displays
 	if (timer1Flag != 0) {
-		displayTextOnLed(videoBuffer, &LEDText, &column, &columnIndex, &LEDIndex, &runs);
+		displayTextOnLed(videoBuffer, LEDText, &column, &columnIndex,&LEDIndex, &runs,menu);
 		timer1Flag = 0;
 	}
 
