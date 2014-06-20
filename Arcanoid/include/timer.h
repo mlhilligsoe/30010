@@ -2,7 +2,8 @@
 #ifndef _TIMER_H_
 #define _TIMER_H_
 
-extern char timerFlag;
+extern char timer0Flag;
+extern char timer1Flag;
 
 void initTimers();
 void initTimer0();

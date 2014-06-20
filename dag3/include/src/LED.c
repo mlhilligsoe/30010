@@ -56,11 +56,6 @@ void LEDsetString(char string[], char videoBuffer[][6], char index){
 
 void LEDupdate(char column, char videoBuffer[][6], char columnIndex){
 
-
-	if(updateLED != 0){
-	
-	
-
 	switch (column){
 	case 0:
 		PEOUT &= 0xEF;
@@ -102,6 +97,5 @@ void LEDupdate(char column, char videoBuffer[][6], char columnIndex){
 	
 	updateLED = 0;
 	
-	}
-	
+
 }
