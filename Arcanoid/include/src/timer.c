@@ -2,8 +2,10 @@
 #include <sio.h>             // special encore serial i/o routines
 #include "timer.h"
 #include "ansi.h"
+#include "LED.h"
 
-char timerFlag = 0;
+char timer0Flag = 0;
+char timer1Flag = 0;
 
 void initTimers(){
 DI(); // Disable interrupt
@@ -29,9 +31,8 @@ T0CTL |= 0x80;  // Timer enable
 
 #pragma interrupt
 void timer0int() {
-timerFlag = 1;
+	timer1Flag = 1;
 }
-
 
 
 void initTimer1(){
@@ -46,7 +47,8 @@ IRQ0ENH &= 0xBF; // enable Timer1 interrupt, and set low priority due to display
 IRQ0ENL |= 0x40; // "
 T1CTL |= 0x80; // Timer enable
 }
+
 #pragma interrupt
 void timer1int() {
-// insert display update flag.
+	timer0Flag = 1;
 }

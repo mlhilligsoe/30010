@@ -762,8 +762,11 @@ WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAAAAAAA
 =0
 CoolLook=True
 LargeButtons=False
+<<<<<<< HEAD
+=======
 MRUHorzDockCY=0
 MRUVertDockCX=0
+>>>>>>> d0c16c09caed6efcc45db1ae5ccc1cadf298ef02
 MRUVertDockCY=0
 PctWidth=0
 PrevFloating=False

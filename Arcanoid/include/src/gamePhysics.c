@@ -69,9 +69,9 @@ void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* p
 	
 	else if ( ball->y > ((24 << 16) /*- 16383*/)  ){ // Death criterium.. @ 23,75
 		// Player Looses a Life,
+		player->lifes = player->lifes - 1;
 		resetLevel(player, ball, level);
 		drawLevel(*ball, *player, level->blocks);
-		player->lifes = player->lifes - 1;
 		drawTopBar(*player);
 	}
 

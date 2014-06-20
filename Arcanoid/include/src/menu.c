@@ -98,6 +98,24 @@ void createMenu(char menu, char* selection){
 
 		*selection = 1;
 		break;
+	case 7:
+		// Draw Boss Menu
+		window(5, 3, 65, 19, "Important Work", 1);
+		gotoxy(8,5);
+		printf("*  Dear Colleague,");
+		gotoxy(10,6);
+		printf("This message is very important, please read it carefully");
+		gotoxy(10,7);
+		printf("You should work more and work harder.");
+		gotoxy(10,8);
+		printf("It is important to work hard and deserve your paycheck.");
+		gotoxy(10,9);
+		printf("Make sure you do this.");
+		gotoxy(10,11);
+		printf("Best Regards, Your Colleague.");
+
+		*selection = 0;
+		break;
 	}
 }
 
@@ -155,8 +173,7 @@ void menuInput(int input, char* selection, char* menu, struct Level* level, stru
 
 		//Select entry
 		if(input == 2 && *selection == 1){
-			player->level = player->level + 1;
-			initLevel(player, ball, level);
+			nextLevel(player, ball, level);
 			drawLevel(*ball, *player, level->blocks);
 			*menu = 0;
 		}
@@ -181,6 +198,17 @@ void menuInput(int input, char* selection, char* menu, struct Level* level, stru
 			createMenu(*menu, selection);
 		}
 		break;
+	case 7:
+		// GameWon Menu
+		moveCursor(input, selection, 1, 1);
+
+		//Select entry
+		if(input == 2 && *selection == 1){
+			drawLevel(*ball, *player, level->blocks);
+			*menu = 0;
+		}
+		break;
+
 	}
 }
 

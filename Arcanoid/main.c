@@ -2,7 +2,7 @@
 #include <sio.h>             // special encore serial i/o routines
 #include "ansi.h"
 #include "printFix.h"
-//#include "SinLUT.h"
+#include "LED.h"
 #include "input.h"
 #include "timer.h"
 #include "menu.h"
@@ -19,6 +19,9 @@ void main(){
 
 	// Initialize LED variables
 	char videoBuffer[5][6] = {0};	// Initializes a '0' array
+	char* LEDText = "    #DTU-SPACE <<30010 Programmeringsprojekt>> #DTU-SPACE ";
+	char column = 0, columnIndex = 0, LEDIndex = 0;
+	int runs = 0;
 
 	// Initialize Menu variables
 	char menu = 1; 				// 0: Start Menu; >0: Other Menus; <0: Game
@@ -36,6 +39,9 @@ void main(){
 	// Initialize time and input (µP registers)
 	initTimers();
 	initInput();
+	initLED();
+	LEDsetString(LEDText, videoBuffer, 0);
+
 	
 	// Initialize Game Menu
 	createMenu(menu, &selection);
@@ -44,7 +50,7 @@ void main(){
 	/* Main Loop	           */
 	/***************************/
 	while( 1 ){
-		if(timerFlag ==1)
+		if(timer0Flag != 0)
 		{
 			
 		// Get input
@@ -64,9 +70,12 @@ void main(){
 
 		// Else if menu == 0, game is running
 		else if( menu == 0){
-			// Test if pausing (btn1 pressed)
-			if(input & 0x01 == 0x02) {
+			// Test if pausing (red button pressed)
+			if(input & 0x0007 == 0x02) {
 				pause(&menu, &selection);
+			}
+			else if(input & 0x0007 == 0x07) {
+				boss(&menu, &selection);
 			}
 
 			
@@ -92,7 +101,14 @@ void main(){
 		else{
 			break;
 		}
-		timerFlag =0;
+
+		timer0Flag = 0;
 	} // End of if loop for timerFlag
+	
+	if (timer1Flag != 0) {
+		displayTextOnLed(videoBuffer, &LEDText, &column, &columnIndex, &LEDIndex, &runs);
+		timer1Flag = 0;
+	}
+
 	} // End of main while loop
 } // End of main()

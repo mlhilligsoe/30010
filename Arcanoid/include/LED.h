@@ -2,10 +2,11 @@
 #ifndef _LED_H_
 #define _LED_H_
 
+static int scrollSpeed = 750;
 extern char updateLED;
-static char* TEKST = "    #DTU-SPACE <<30010 Programmeringsprojekt>> #DTU-SPACE "; 
+extern char* TEKST; 
 
-void LEDinit();
+void initLED();
 
 void displayTextOnLed();
 void LEDsetString(char string[], char videoBuffer[][6], char index);
