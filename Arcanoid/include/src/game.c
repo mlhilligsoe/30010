@@ -41,7 +41,7 @@ void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	ball->x = 40 << 16;
 	ball->y = 18 << 16;
 	ball->angle = rand()%128 + 320;
-	ball->speed = 8000 + 2000*player->level;
+	ball->speed = 8000 + 1500*player->level;
 
 	level->lifes = 0;
 	for(i = 0; i < 64; i++){
