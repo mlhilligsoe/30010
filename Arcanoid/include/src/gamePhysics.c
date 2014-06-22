@@ -7,32 +7,35 @@
 #include "ansi.h"
 #include "sinLUT.h"
 
+// update player position using input from slider.
 void updatePlayerPos(int input, struct Player* player){
-	char old_x, new_x;
-	int slider = (input >> 5)/13 + 2;
-	old_x = (char)(player->x >> 16);
+	char old_x, new_x; // holds positions for the redraw function
+	int slider = (input >> 5)/13 + 2; // Converts input to player positions
+	old_x = (char)(player->x >> 16); // old position as a char
 
 	if(slider > 3 && slider < 78)
-		player->x = (long)slider << 16;
+		player->x = (long)slider << 16; //The new position of player
 	else if(slider <= 3)
-		player->x = 4 << 16;
+		player->x = 4 << 16; // prevents player from straying to the left
 	else if( slider >= 78)
-		player->x = 77 << 16;
+		player->x = 77 << 16; // prevents player from straying to the right
 	
    new_x = (char)(player->x >> 16);
 
-	if(new_x != old_x) 
+	if(new_x != old_x) // only use print if position has changed
 		redrawPlayer(old_x,(char)(player->x >> 16) );
 
 }
 
+// update ball position using ball->angle and ball->speed
+// NOT using vectorRotate, but rather a polar coordinates solution
 void updateBallPos(struct Ball* ball, struct Player* player){
 	char old_x;
 	char old_y;
 	char new_x;
 	char new_y;
 
-    old_x = (char)(ball->x >> 16);
+    old_x = (char)(ball->x >> 16); 
     old_y = (char)(ball->y >> 16);
 	
 	//change in x:
@@ -43,12 +46,12 @@ void updateBallPos(struct Ball* ball, struct Player* player){
 	new_x = (char)(ball->x >> 16);
     new_y = (char)(ball->y >> 16);
     
-    if(old_x != new_x || old_y != new_y){
+    if(old_x != new_x || old_y != new_y){ \\ only printing when there is a change
     	redrawBall(old_x, old_y, new_x, new_y);
     }
     
 }
-
+\\ checking for ball collision with wall and ceiling
 void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* player){
 
 	// Check for Left Wall collisions
@@ -77,6 +80,8 @@ void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* p
 
 }
 
+// Player characteristics defined here!
+// Player has five parts, each changes the ball->angle in a different way
 void checkPlayerCollision(struct Ball* ball, struct Player* player){
 
 	if(ball->y > (23 << 16)-16383) {
