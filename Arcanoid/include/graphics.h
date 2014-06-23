@@ -2,10 +2,8 @@
 #include <sio.h>   
 #include "struct.h"
 
-
 #ifndef _GRAPHICS_H_
 #define _GRAPHICS_H_
-
 
 void drawTopBar(struct Player player);
 void redrawPlayer(char x_old, char x_new);

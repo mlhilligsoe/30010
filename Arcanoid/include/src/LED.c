@@ -27,15 +27,15 @@ void displayTextOnLed(char videoBuffer[][6], char* text, char* cColumn,
 		//Udregner hvornår videoBuffer skal opdateres
 		if (*columnIndex == 0) {
 			*LEDIndex = (*LEDIndex + 1) % strlen(text);
-			if(scroll != 0)
+			if (scroll != 0)
 				LEDsetString(text, videoBuffer, *LEDIndex);
 			else
 				LEDsetString(text, videoBuffer, 0);
 		}
 	}
 	*runs = (*runs + 1) % scrollSpeed;
-	
-	if(scroll != 0)
+
+	if (scroll != 0)
 		LEDupdate(*cColumn, videoBuffer, *columnIndex);
 	else
 		LEDupdate(*cColumn, videoBuffer, 0);
