@@ -46,12 +46,13 @@ void updateBallPos(struct Ball* ball, struct Player* player){
 	new_x = (char)(ball->x >> 16);
     new_y = (char)(ball->y >> 16);
     
-    if(old_x != new_x || old_y != new_y){ \\ only printing when there is a change
+    if(old_x != new_x || old_y != new_y){ // only printing when there is a change
     	redrawBall(old_x, old_y, new_x, new_y);
     }
     
 }
-\\ checking for ball collision with wall and ceiling
+
+// checking for ball collision with wall and ceiling
 void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* player){
 
 	// Check for Left Wall collisions
@@ -60,7 +61,7 @@ void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* p
 		ball->angle = 256 - ball->angle;
 	}
 	// Check for Right Wall collisions
-	else if ( ball->x > (79 << 16) - 16383 ){
+	else if ( ball->x > (80 << 16) - 16383 ){
 		ball->angle = 256 - ball->angle;
 	}
 
