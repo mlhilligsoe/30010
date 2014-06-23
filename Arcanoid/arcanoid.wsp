@@ -5,8 +5,8 @@ ptn_Child3=Frames
 
 [WorkState_v1_1.DockState]
 Bars=14
-ScreenCX=1366
-ScreenCY=768
+ScreenCX=1600
+ScreenCY=900
 ptn_Child1=Bar-0
 ptn_Child10=Bar-9
 ptn_Child11=Bar-10
@@ -92,7 +92,11 @@ MRUFloatCX=0
 MRUFloatCY=0
 MRUFloatStyle=8196
 MRUFloatXPos=-2147483648
+<<<<<<< HEAD
 MRUFloatYPos=0
+=======
+MRUFloatYPos=7077290
+>>>>>>> 42f3d8d12c270ed6f41f3778d882bbb5ec42b356
 MRUHorzDockCX=192
 MRUHorzDockCY=30
 MRUVertDockCX=0
@@ -327,7 +331,7 @@ MDIChild=False
 MRUDockBottomPos=135
 MRUDockID=0
 MRUDockLeftPos=1
-MRUDockRightPos=1366
+MRUDockRightPos=1600
 MRUDockTopPos=5
 MRUDockingState=0
 MRUFloatCX=300
@@ -335,7 +339,11 @@ MRUFloatCY=180
 MRUFloatStyle=4
 MRUFloatXPos=-2147483648
 MRUFloatYPos=4217936
+<<<<<<< HEAD
 MRUHorzDockCX=1365
+=======
+MRUHorzDockCX=1599
+>>>>>>> 42f3d8d12c270ed6f41f3778d882bbb5ec42b356
 MRUHorzDockCY=130
 MRUVertDockCX=300
 MRUVertDockCY=180
@@ -355,7 +363,7 @@ Docking=True
 DockingStyle=61440
 ExStyle=3889
 MDIChild=False
-MRUDockBottomPos=461
+MRUDockBottomPos=551
 MRUDockID=0
 MRUDockLeftPos=0
 MRUDockRightPos=258
@@ -365,11 +373,19 @@ MRUFloatCX=300
 MRUFloatCY=180
 MRUFloatStyle=4
 MRUFloatXPos=-2147483648
+<<<<<<< HEAD
 MRUFloatYPos=6822976
 MRUHorzDockCX=300
 MRUHorzDockCY=180
 MRUVertDockCX=258
 MRUVertDockCY=463
+=======
+MRUFloatYPos=4508672
+MRUHorzDockCX=300
+MRUHorzDockCY=180
+MRUVertDockCX=180
+MRUVertDockCY=553
+>>>>>>> 42f3d8d12c270ed6f41f3778d882bbb5ec42b356
 PctWidth=1000000
 PrevFloating=False
 ResourceID=0
@@ -389,15 +405,20 @@ MDIChild=False
 MRUDockBottomPos=28
 MRUDockID=0
 MRUDockLeftPos=-1
-MRUDockRightPos=1365
+MRUDockRightPos=1599
 MRUDockTopPos=-1
 MRUDockingState=0
 MRUFloatCX=0
 MRUFloatCY=0
 MRUFloatStyle=8196
 MRUFloatXPos=-2147483648
+<<<<<<< HEAD
 MRUFloatYPos=5052912
 MRUHorzDockCX=1366
+=======
+MRUFloatYPos=0
+MRUHorzDockCX=1600
+>>>>>>> 42f3d8d12c270ed6f41f3778d882bbb5ec42b356
 MRUHorzDockCY=29
 MRUVertDockCX=0
 MRUVertDockCY=0
@@ -430,7 +451,11 @@ MRUFloatCX=0
 MRUFloatCY=0
 MRUFloatStyle=8196
 MRUFloatXPos=-2147483648
+<<<<<<< HEAD
 MRUFloatYPos=5688544
+=======
+MRUFloatYPos=5137024
+>>>>>>> 42f3d8d12c270ed6f41f3778d882bbb5ec42b356
 MRUHorzDockCX=296
 MRUHorzDockCY=30
 MRUVertDockCX=0
@@ -465,7 +490,11 @@ MRUFloatCX=0
 MRUFloatCY=0
 MRUFloatStyle=8196
 MRUFloatXPos=-2147483648
+<<<<<<< HEAD
 MRUFloatYPos=6822976
+=======
+MRUFloatYPos=5831456
+>>>>>>> 42f3d8d12c270ed6f41f3778d882bbb5ec42b356
 MRUHorzDockCX=488
 MRUHorzDockCY=30
 MRUVertDockCX=0
@@ -641,8 +670,13 @@ ptn_Child1=ViewFrame-0
 DocPathName=include\src\gamePhysics.c
 DocTemplateIndex=0
 DocumentString=IDE Document
+<<<<<<< HEAD
 IsActiveChildFrame=False
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAAHDFAAAAAINBAAAAA
+=======
+IsActiveChildFrame=True
+WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAAHDFAAAAAINBAAAAA
+>>>>>>> 42f3d8d12c270ed6f41f3778d882bbb5ec42b356
 
 [WorkState_v1_1.Frames.ChildFrames.Document-20]
 ptn_Child1=ViewFrame-0
@@ -731,8 +765,13 @@ ptn_Child1=ViewFrame-0
 DocPathName=include\src\printFix.c
 DocTemplateIndex=0
 DocumentString=IDE Document
+<<<<<<< HEAD
 IsActiveChildFrame=True
 WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAAPBEAAAAAAFBAAAAA
+=======
+IsActiveChildFrame=False
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAAPBEAAAAAAFBAAAAA
+>>>>>>> 42f3d8d12c270ed6f41f3778d882bbb5ec42b356
 
 [WorkState_v1_1.Frames.ChildFrames.Document-8]
 ptn_Child1=ViewFrame-0
@@ -755,7 +794,11 @@ IsActiveChildFrame=False
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPAAAAAAAAAAAAAAAANMBAAAAAAEBAAAAA
 
 [WorkState_v1_1.Frames.MainFrame]
+<<<<<<< HEAD
 Title=arcanoid -- ZDS II - Z8 Encore! Family -- printFix - [printFix]
+=======
+Title=arcanoid -- ZDS II - Z8 Encore! Family -- gamePhysics.c - [gamePhysics.c]
+>>>>>>> 42f3d8d12c270ed6f41f3778d882bbb5ec42b356
 WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAAADIPPPPAADIPPPPPPPPPPPPPPPPPPPPAAAAAAAAEAAAAAAANGDAAAAAOBCAAAAA
 
 [WorkState_v1_1.ToolBarMgr]
