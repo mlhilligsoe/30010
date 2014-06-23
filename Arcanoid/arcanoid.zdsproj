@@ -10,7 +10,6 @@
 <file filter-key="">include\src\input.c</file>
 <file filter-key="">include\src\LED.c</file>
 <file filter-key="">include\src\menu.c</file>
-<file filter-key="">include\src\printFix.c</file>
 <file filter-key="">include\src\SinLUT.c</file>
 <file filter-key="">include\src\graphics.c</file>
 <file filter-key="">include\src\gamePhysics.c</file>
