@@ -7,32 +7,35 @@
 #include "ansi.h"
 #include "sinLUT.h"
 
+// update player position using input from slider.
 void updatePlayerPos(int input, struct Player* player){
-	char old_x, new_x;
-	int slider = (input >> 5)/13 + 2;
-	old_x = (char)(player->x >> 16);
+	char old_x, new_x; // holds positions for the redraw function
+	int slider = (input >> 5)/13 + 2; // Converts input to player positions
+	old_x = (char)(player->x >> 16); // old position as a char
 
 	if(slider > 3 && slider < 78)
-		player->x = (long)slider << 16;
+		player->x = (long)slider << 16; //The new position of player
 	else if(slider <= 3)
-		player->x = 4 << 16;
+		player->x = 4 << 16; // prevents player from straying to the left
 	else if( slider >= 78)
-		player->x = 77 << 16;
+		player->x = 77 << 16; // prevents player from straying to the right
 	
    new_x = (char)(player->x >> 16);
 
-	if(new_x != old_x) 
+	if(new_x != old_x) // only use print if position has changed
 		redrawPlayer(old_x,(char)(player->x >> 16) );
 
 }
 
+// update ball position using ball->angle and ball->speed
+// NOT using vectorRotate, but rather a polar coordinates solution
 void updateBallPos(struct Ball* ball, struct Player* player){
 	char old_x;
 	char old_y;
 	char new_x;
 	char new_y;
 
-    old_x = (char)(ball->x >> 16);
+    old_x = (char)(ball->x >> 16); 
     old_y = (char)(ball->y >> 16);
 	
 	//change in x:
@@ -43,12 +46,12 @@ void updateBallPos(struct Ball* ball, struct Player* player){
 	new_x = (char)(ball->x >> 16);
     new_y = (char)(ball->y >> 16);
     
-    if(old_x != new_x || old_y != new_y){
+    if(old_x != new_x || old_y != new_y){ \\ only printing when there is a change
     	redrawBall(old_x, old_y, new_x, new_y);
     }
     
 }
-
+\\ checking for ball collision with wall and ceiling
 void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* player){
 
 	// Check for Left Wall collisions
@@ -77,67 +80,46 @@ void checkWallCollision(struct Ball* ball, struct Level* level, struct Player* p
 
 }
 
+// Player characteristics defined here!
+// Player has five parts, each changes the ball->angle in a different way
 void checkPlayerCollision(struct Ball* ball, struct Player* player){
 
 	if(ball->y > (23 << 16)-16383) {
 
-	gotoxy(2,14);
-	printf("Angle In: %04d", ball->angle);
-		
-
 		// If hit section 1, change direction
-		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) - 1){
+		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) - 1)
 			ball->angle = -ball->angle -2*32;
-			gotoxy(2,12);
-			printf("Section 1 ");}
 		
 		// If hit section 2, change direction
-		if( (ball->x >> 16) >= (player->x >> 16) - 1 && (ball->x >> 16) < (player->x >> 16) ){
+		if( (ball->x >> 16) >= (player->x >> 16) - 1 && (ball->x >> 16) < (player->x >> 16) )
 			ball->angle = -ball->angle -2*16;
-			gotoxy(2,12);
-			printf("Section 2 ");
-		}
-
-		// If hit section 3, change direction
-		if( (ball->x >> 16) >= (player->x >> 16) && (ball->x >> 16) < (player->x >> 16) + 1){
-			ball->angle = -ball->angle;
-			gotoxy(2,12);
-			printf("Section 3 ");
-		}
 		
+		// If hit section 3, change direction
+		if( (ball->x >> 16) >= (player->x >> 16) && (ball->x >> 16) < (player->x >> 16) + 1)
+			ball->angle = -ball->angle;
+			
 		// If hit section 4, change direction
-		if( (ball->x >> 16) >= (player->x >> 16) + 1 && (ball->x >> 16) < (player->x >> 16) + 2){
+		if( (ball->x >> 16) >= (player->x >> 16) + 1 && (ball->x >> 16) < (player->x >> 16) + 2)
 				ball->angle = -ball->angle +2*16;
-				gotoxy(2,12);
-			printf("Section 4 ");
-		}
-
+	
 		// If hit section 5, change direction
-		if( (ball->x >> 16) >= (player->x >> 16) + 2 && (ball->x >> 16) < (player->x >> 16) + 3){
+		if( (ball->x >> 16) >= (player->x >> 16) + 2 && (ball->x >> 16) < (player->x >> 16) + 3)
 			ball->angle = -ball->angle +2*32;
-			gotoxy(2,12);
-			printf("Section 5 ");
-		}
-
-				ball->angle &= 0x1FF;
-		gotoxy(2,15);
-		printf("Angle Out: %04d", ball->angle);
+		
+		// Makes the the angle positive.
+		ball->angle &= 0x1FF; 
+	
 		
 		// If hit, move ball a bit up.
 		if( (ball->x >> 16) >= (player->x >> 16) - 2 && (ball->x >> 16) < (player->x >> 16) + 3){
-			ball->y = (23 << 16) - 16383;
-					
+			
 			if( ball->angle < 288 && ball->angle >128)
 				ball->angle = 288;  // Corrects balls with wrong angle to the left
 			else if(ball->angle > 480 || ball->angle < 128)
 				ball->angle = 480; // Corrects ball with wrong angle to the right.
 
+			updateBallPos(ball, player);
 		}
-
-				
-	gotoxy(2,16);
-	printf("Angle Out Corrected %04d", ball->angle);
-		
 	}
 }
 
@@ -157,7 +139,7 @@ void checkBlockCollision(struct Ball* ball, struct Level* level, struct Player* 
 				&& (	ball->y < ( ((long)blocks[i].y + 1) << 16 )				) 
 			){
 				
-				ball->angle = ball->angle+256;
+				ball->angle = -ball->angle + 256;
 				hit = 1;
 			}
 			
@@ -172,6 +154,8 @@ void checkBlockCollision(struct Ball* ball, struct Level* level, struct Player* 
 			}
 
 			if( hit == 1){
+				updateBallPos(ball, player);
+
 				blocks[i].lifes--;
 				drawBlock(blocks[i]);
 				level->lifes--;

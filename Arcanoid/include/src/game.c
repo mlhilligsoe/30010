@@ -33,10 +33,7 @@ void gameWon(struct Player* player, struct Level* level, struct Ball* ball, char
 void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	int i;	
 
-<<<<<<< HEAD
-=======
-	//player->x = 40 << 16;
->>>>>>> d0c16c09caed6efcc45db1ae5ccc1cadf298ef02
+
 	player->y = 23 << 16;
 	player->lifes = 3;
 	player->points = 0;
@@ -44,7 +41,7 @@ void initLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	ball->x = 40 << 16;
 	ball->y = 18 << 16;
 	ball->angle = rand()%128 + 320;
-	ball->speed = 8000 + 2000*player->level;
+	ball->speed = 8000 + 1500*player->level;
 
 	level->lifes = 0;
 	for(i = 0; i < 64; i++){
@@ -61,17 +58,10 @@ void resetLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	
 	ball->x = 40 << 16;
 	ball->y = 18 << 16;
-<<<<<<< HEAD
 	ball->angle = rand()%128 + 320;
-	ball->speed = 5000;
+	ball->speed = 8000 + 2000*player->level;
 	
-=======
 
-	
-	ball->angle = -64;
-	ball->speed = 10000;
-
->>>>>>> d0c16c09caed6efcc45db1ae5ccc1cadf298ef02
 }
 
 void nextLevel(struct Player* player, struct Ball* ball, struct Level* level){
@@ -81,8 +71,7 @@ void nextLevel(struct Player* player, struct Ball* ball, struct Level* level){
 	ball->y = 18 << 16;
 	ball->angle = rand()%128 + 320;
 	ball->speed = 8000 + 2000*player->level;
-	
-<<<<<<< HEAD
+
 	level->lifes = 0;
 	for(i = 0; i < 64; i++){
 		level->blocks[i] = LEVELBLOCKS[player->level][i];
@@ -90,11 +79,7 @@ void nextLevel(struct Player* player, struct Ball* ball, struct Level* level){
 		if(level->blocks[i].lifes > 0){
 			level->lifes += level->blocks[i].lifes;
 		}
-=======
-	ball->angle = -64;
-	ball->speed = 10000;
-	
->>>>>>> d0c16c09caed6efcc45db1ae5ccc1cadf298ef02
+
 	}
 	
 }
