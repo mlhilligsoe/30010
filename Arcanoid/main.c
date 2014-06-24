@@ -1,7 +1,6 @@
 #include <eZ8.h>             // special encore constants, macros and flash routines
 #include <sio.h>             // special encore serial i/o routines
 #include "ansi.h"
-#include "printFix.h"
 #include "LED.h"
 #include "input.h"
 #include "timer.h"
@@ -9,7 +8,6 @@
 #include "game.h"
 #include "struct.h"
 #include "gamePhysics.h"
-//#include ""
 
 void main(){
 

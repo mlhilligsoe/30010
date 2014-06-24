@@ -71,7 +71,6 @@ define __user_frequency = 18432000
  .\input.obj, \
  .\LED.obj, \
  .\menu.obj, \
- .\printFix.obj, \
  .\SinLUT.obj, \
  .\graphics.obj, \
  .\gamePhysics.obj, \

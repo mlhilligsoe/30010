@@ -641,8 +641,8 @@ ptn_Child1=ViewFrame-0
 DocPathName=include\src\gamePhysics.c
 DocTemplateIndex=0
 DocumentString=IDE Document
-IsActiveChildFrame=True
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAAHDFAAAAAINBAAAAA
+IsActiveChildFrame=False
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAAHDFAAAAAINBAAAAA
 
 [WorkState_v1_1.Frames.ChildFrames.Document-20]
 ptn_Child1=ViewFrame-0
@@ -711,8 +711,8 @@ ptn_Child1=ViewFrame-0
 DocPathName=include\src\ansi.c
 DocTemplateIndex=0
 DocumentString=IDE Document
-IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPLEAAAAAALEAAAAAAIBCAAAAALIBAAAAA
+IsActiveChildFrame=True
+WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPLEAAAAAALEAAAAAAIBCAAAAALIBAAAAA
 
 [WorkState_v1_1.Frames.ChildFrames.Document-6]
 ptn_Child1=ViewFrame-0
@@ -755,7 +755,7 @@ IsActiveChildFrame=False
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPAAAAAAAAAAAAAAAANMBAAAAAAEBAAAAA
 
 [WorkState_v1_1.Frames.MainFrame]
-Title=arcanoid -- ZDS II - Z8 Encore! Family -- gamePhysics.c - [gamePhysics.c]
+Title=arcanoid -- ZDS II - Z8 Encore! Family -- ansi.c - [ansi.c]
 WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAAADIPPPPAADIPPPPPPPPPPPPPPPPPPPPAAAAAAAAEAAAAAAANGDAAAAAOBCAAAAA
 
 [WorkState_v1_1.ToolBarMgr]

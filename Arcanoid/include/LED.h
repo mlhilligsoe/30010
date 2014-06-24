@@ -2,8 +2,6 @@
 #define _LED_H_
 
 static int scrollSpeed = 100;
-extern char updateLED;
-extern char* LEDText;
 
 void initLED();
 
